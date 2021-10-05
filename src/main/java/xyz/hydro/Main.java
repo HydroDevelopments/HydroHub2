@@ -37,6 +37,12 @@ public final class Main extends JavaPlugin {
 
         // Admin Permissions
         this.permission = new Permission("hhub.admin.mainCommand");
+        this.permission = new Permission("hhub.admin.command.reloadExecution");
+        this.permission = new Permission("hhub.admin.command.setWorldSpawn");
+
+        // Member Permissions
+        this.permission = new Permission("hhub.member.boostPads.use");
+        this.permission = new Permission("hhub.member.command.spawnCommand");
 
     }
 

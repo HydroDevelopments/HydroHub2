@@ -25,14 +25,15 @@ public class BoostPads implements Listener {
         List<String> ignoredWorld = plugin.getConfig().getStringList("boostPadWorlds.allowed");
         String world = p.getWorld().getName();
 
-        if(!ignoredWorld.contains(world)) {
+        if(!ignoredWorld.contains(world) && p.hasPermission("hhub.member.boostPads.use")) {
+
             Vector v = p.getLocation().getDirection();
 
             int count = 1;
 
-            if (p.getLocation().subtract(0, 1, 0).getBlock().getType() == Material.EMERALD_BLOCK) {
-                Vector direction = p.getLocation().getDirection().multiply(4);
-                direction.setY(direction.getY() + 1);
+            if (p.getLocation().subtract(0, 1, 0).getBlock().getType() == Material.EMERALD_BLOCK && p.getLocation().subtract(0, 1, 0).getBlock().getType() == Material.HEAVY_WEIGHTED_PRESSURE_PLATE ) {
+                Vector direction = p.getLocation().getDirection().multiply(plugin.getConfig().getDouble("boostPadMultiplier"));
+                direction.setY(direction.getY() + plugin.getConfig().getDouble("boostPadHeightMultiplier"));
                 p.setVelocity(direction);
 
                 p.getPlayer().playSound(p.getPlayer().getLocation(), Sound.BLOCK_PISTON_EXTEND, 4, 4);
