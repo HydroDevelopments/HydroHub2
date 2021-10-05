@@ -1,8 +1,8 @@
 name: HydroHub
-version: '${project.version}'
+version: 1.0
 main: xyz.hydro.Main
 api-version: 1.16
-prefix: HydroHubs
+prefix: HydroHub
 load: STARTUP
 authors: [ jiggey, Rismose ]
 description: A hub core plugin, made for servers who handle a lot of lobby servers.
@@ -24,3 +24,7 @@ commands:
     usage: /<command>
     aliases: ['hub', 'lobby']
     permission: hhub.member.command.spawnCommand
+  boostpads:
+    description: Opens the boostPads config in a GUI
+    usage: /<command>
+    permission: hhub.admin.commands.boostPadsCommand

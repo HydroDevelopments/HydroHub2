@@ -4,13 +4,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import xyz.hydro.commands.HydroHubCommand;
-import xyz.hydro.commands.ReloadCommand;
-import xyz.hydro.commands.SetSpawnCommand;
-import xyz.hydro.commands.SpawnCommand;
+import xyz.hydro.commands.*;
 import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
 import xyz.hydro.features.BoostPads;
+import xyz.hydro.gui.BoostPadsGUI;
 
 import java.util.Objects;
 
@@ -40,6 +38,7 @@ public final class Main extends JavaPlugin {
         this.permission = new Permission("hhub.admin.mainCommand");
         this.permission = new Permission("hhub.admin.command.reloadExecution");
         this.permission = new Permission("hhub.admin.command.setWorldSpawn");
+        this.permission = new Permission("hhub.admin.commands.boostPadsCommand");
 
         // Member Permissions
         this.permission = new Permission("hhub.member.boostPads.use");
@@ -53,9 +52,12 @@ public final class Main extends JavaPlugin {
         final PluginManager pluginManager = this.getServer().getPluginManager();
         pluginManager.addPermission(this.permission);
 
-        // Registering the Commands
+        // Registering the MAIN Commands
         Objects.requireNonNull(getCommand("hydroreload")).setExecutor((new ReloadCommand(this)));
         Objects.requireNonNull(getCommand("hydrohub")).setExecutor((new HydroHubCommand(this)));
+
+        // Registering Plugin Commands
+        Objects.requireNonNull(getCommand("boostpads")).setExecutor((new BoostPadsGUI(this)));
         Objects.requireNonNull(getCommand("setspawn")).setExecutor((new SetSpawnCommand(this)));
         Objects.requireNonNull(getCommand("spawn")).setExecutor((new SpawnCommand(this)));
 
@@ -63,6 +65,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new OnRespawnEvent(this), this);
         pluginManager.registerEvents(new OnJoinEvents(this), this);
         pluginManager.registerEvents(new BoostPads(this), this);
+        pluginManager.registerEvents(new BoostPadsGUI(this), this);
 
 
         // Config Things.
