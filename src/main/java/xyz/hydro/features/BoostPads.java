@@ -2,6 +2,7 @@ package xyz.hydro.features;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,7 +32,7 @@ public class BoostPads implements Listener {
 
             int count = 1;
 
-            if (p.getLocation().subtract(0, 1, 0).getBlock().getType() == Material.EMERALD_BLOCK && p.getLocation().subtract(0, 1, 0).getBlock().getType() == Material.HEAVY_WEIGHTED_PRESSURE_PLATE ) {
+            if (p.getLocation().subtract(0, 1, 0).getBlock().getType() == Material.EMERALD_BLOCK && event.getTo().getBlock().getRelative(BlockFace.DOWN).getType() == Material.LIGHT_WEIGHTED_PRESSURE_PLATE ) {
                 Vector direction = p.getLocation().getDirection().multiply(plugin.getConfig().getDouble("boostPadMultiplier"));
                 direction.setY(direction.getY() + plugin.getConfig().getDouble("boostPadHeightMultiplier"));
                 p.setVelocity(direction);
