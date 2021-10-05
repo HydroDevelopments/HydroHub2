@@ -1,0 +1,25 @@
+name: HydroHub
+version: '${project.version}'
+main: xyz.hydro.Main
+api-version: 1.16
+prefix: HydroHubs
+load: STARTUP
+authors: [ jiggey, Rismose ]
+description: A hub core plugin, made for servers who handle a lot of lobby servers.
+commands:
+  hydroreload:
+    description: Reload HydroHub
+    usage: /<command>
+    permission: hhub.admin.command.reloadExecution
+  hydrohub:
+    description: Main HydroHub Command
+    usage: /<command>
+    permission: hhub.admin.command.mainCommand
+  setspawn:
+    description: Set the worlds spawn command
+    usage: /<command>
+    permission: hhub.admin.command.setWorldSpawn
+  spawn:
+    description: Teleports The Player To The World Spawn
+    usage: /<command>
+    permission: hhub.member.command.spawnCommand
