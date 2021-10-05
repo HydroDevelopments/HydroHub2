@@ -14,7 +14,10 @@ gotoSpawnOnJoin: true
 gotoSpawnOnDeath: true
 
 
-# Define Which Worlds Boost Pads Are Enabled On
+# The block which triggers the launch event. This can be GOLD_BLOCK or EMERALD_BLOCK. No pressure plate is needed.
+boostPadBlock: 'EMERALD_BLOCK'
+
+# Define Which Worlds Boost sPads Are Enabled On
 boostPadWorlds:
   allowed:
     - hub

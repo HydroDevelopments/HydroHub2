@@ -19,6 +19,8 @@ public class BoostPads implements Listener {
         this.plugin = plugin;
     }
 
+    private Material pressurePlate;
+
     @EventHandler
     public void onWalkOver(PlayerMoveEvent event) {
 
@@ -32,8 +34,17 @@ public class BoostPads implements Listener {
 
             int count = 1;
 
-            if (p.getLocation().subtract(0, 1, 0).getBlock().getType() == Material.EMERALD_BLOCK && event.getTo().getBlock().getRelative(BlockFace.DOWN).getType() == Material.LIGHT_WEIGHTED_PRESSURE_PLATE ) {
-                Vector direction = p.getLocation().getDirection().multiply(plugin.getConfig().getDouble("boostPadMultiplier"));
+            if(plugin.getConfig().getString("boostPadBlock").equals("GOLD_BLOCK")) {
+                pressurePlate = Material.GOLD_BLOCK;
+            } else if(plugin.getConfig().getString("boostPadBlock").equals("EMERALD_BLOCK")) {
+                pressurePlate = Material.EMERALD_BLOCK;
+            } else {
+                plugin.getLogger().warning("boostPadBlock in config MUST be either GOLD_BLOCK or EMERALD_BLOCK!");
+                return;
+            }
+
+            if (p.getLocation().subtract(0, 1, 0).getBlock().getType() == pressurePlate ) {
+                Vector direction = p.getLocation().getDirection().multiply(plugin.getConfig().getDouble("boostPadLaunchMultiplier"));
                 direction.setY(direction.getY() + plugin.getConfig().getDouble("boostPadHeightMultiplier"));
                 p.setVelocity(direction);
 
