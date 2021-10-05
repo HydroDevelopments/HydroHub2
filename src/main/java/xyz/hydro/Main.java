@@ -10,6 +10,7 @@ import xyz.hydro.commands.SetSpawnCommand;
 import xyz.hydro.commands.SpawnCommand;
 import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
+import xyz.hydro.features.BoostPads;
 
 import java.util.Objects;
 
@@ -61,6 +62,7 @@ public final class Main extends JavaPlugin {
         // Event Registering Goes Here!
         pluginManager.registerEvents(new OnRespawnEvent(this), this);
         pluginManager.registerEvents(new OnJoinEvents(this), this);
+        pluginManager.registerEvents(new BoostPads(this), this);
 
 
         // Config Things.
