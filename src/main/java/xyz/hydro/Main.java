@@ -55,6 +55,7 @@ public final class Main extends JavaPlugin {
         // Registering the MAIN Commands
         Objects.requireNonNull(getCommand("hydroreload")).setExecutor((new ReloadCommand(this)));
         Objects.requireNonNull(getCommand("hydrohub")).setExecutor((new HydroHubCommand(this)));
+        Objects.requireNonNull(getCommand("help")).setExecutor((new CustomHelpCommand(this)));
 
         // Registering Plugin Commands
         Objects.requireNonNull(getCommand("boostpads")).setExecutor((new BoostPadsGUI(this)));

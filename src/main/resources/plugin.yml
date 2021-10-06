@@ -7,6 +7,11 @@ load: STARTUP
 authors: [ jiggey, Rismose ]
 description: A hub core plugin, made for servers who handle a lot of lobby servers.
 commands:
+  help:
+    description: Custom Help Command Plugin
+    usage: /<command>
+    permission: hhub.member.command.helpCommand
+    aliases: ['h', '?']
   hydroreload:
     description: Reload HydroHub
     usage: /<command>
