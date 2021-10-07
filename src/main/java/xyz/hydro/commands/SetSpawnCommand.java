@@ -37,6 +37,7 @@ public class SetSpawnCommand implements CommandExecutor, Listener {
 
                 plugin.saveConfig();
                 plugin.reloadConfig();
+                plugin.getConfig().options().copyDefaults();
 
                 player.sendMessage(format(pluginPrefix + "Spawn Set Successfully!"));
 

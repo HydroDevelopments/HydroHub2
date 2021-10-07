@@ -37,10 +37,10 @@ public class SpawnCommand implements CommandExecutor {
                 double x = plugin.getConfig().getDouble("worldSpawnX");
 
                 if (plugin.getConfig().getBoolean("spawnCommandDelay")) {
-                    p.sendMessage(format(pluginPrefix + "&cYou will be teleported to spawn in 5 seconds. You are allowed to move."));
+                    p.sendMessage(format(pluginPrefix + "You will be teleported to spawn in 5 seconds. You are allowed to move."));
                     fiveSecTimer(p);
                 } else {
-                    p.sendMessage(format(pluginPrefix + "&cYou have teleported to spawn!"));
+                    p.sendMessage(format(pluginPrefix + "You have teleported to spawn!"));
                     teleportVoid(p);
                 }
             }
