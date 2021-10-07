@@ -22,20 +22,20 @@ public class OnJoinEvents implements Listener {
 
         Player player = e.getPlayer();
 
-        if(plugin.getConfig().get("worldSpawnX") == null) {
+        if(plugin.getLocationsConfig().get("worldSpawnX") == null) {
             return;
         } else {
 
 
             // Player Spawn
-            World world = plugin.getServer().getWorld(Objects.requireNonNull(plugin.getConfig().getString("worldSpawnName")));
-            double x = plugin.getConfig().getDouble("worldSpawnX");
-            double y = plugin.getConfig().getDouble("worldSpawnY");
-            double z = plugin.getConfig().getDouble("worldSpawnZ");
-            double yaw = plugin.getConfig().getDouble("worldSpawnYaw");
-            double pitch = plugin.getConfig().getDouble("worldSpawnPitch");
+            World world = plugin.getServer().getWorld(Objects.requireNonNull(plugin.getLocationsConfig().getString("worldSpawnName")));
+            double x = plugin.getLocationsConfig().getDouble("worldSpawnX");
+            double y = plugin.getLocationsConfig().getDouble("worldSpawnY");
+            double z = plugin.getLocationsConfig().getDouble("worldSpawnZ");
+            double yaw = plugin.getLocationsConfig().getDouble("worldSpawnYaw");
+            double pitch = plugin.getLocationsConfig().getDouble("worldSpawnPitch");
 
-            if (plugin.getConfig().get("worldSpawnX") != null) {
+            if (plugin.getLocationsConfig().get("worldSpawnX") != null) {
                 player.teleport(new Location(world, x, y, z, (float) yaw, (float) pitch));
             } else {
                 player.sendMessage("Event Trigger");

@@ -28,16 +28,16 @@ public class SetSpawnCommand implements CommandExecutor, Listener {
 
             if (sender.hasPermission("hhub.admin.command.setWorldSpawn")) {
 
-                plugin.getConfig().set("worldSpawnName", player.getWorld().getName());
-                plugin.getConfig().set("worldSpawnX", player.getLocation().getX());
-                plugin.getConfig().set("worldSpawnY", player.getLocation().getY());
-                plugin.getConfig().set("worldSpawnZ", player.getLocation().getZ());
-                plugin.getConfig().set("worldSpawnYaw", player.getLocation().getYaw());
-                plugin.getConfig().set("worldSpawnPitch", player.getLocation().getPitch());
+                plugin.getLocationsConfig().set("worldSpawnName", player.getWorld().getName());
+                plugin.getLocationsConfig().set("worldSpawnX", player.getLocation().getX());
+                plugin.getLocationsConfig().set("worldSpawnY", player.getLocation().getY());
+                plugin.getLocationsConfig().set("worldSpawnZ", player.getLocation().getZ());
+                plugin.getLocationsConfig().set("worldSpawnYaw", player.getLocation().getYaw());
+                plugin.getLocationsConfig().set("worldSpawnPitch", player.getLocation().getPitch());
 
-                plugin.saveConfig();
-                plugin.reloadConfig();
-                plugin.getConfig().options().copyDefaults();
+                plugin.saveLocationConfig();
+                plugin.reloadLocationsConfig();
+                plugin.getLocationsConfig().options().copyDefaults();
 
                 player.sendMessage(format(pluginPrefix + "Spawn Set Successfully!"));
 

@@ -91,10 +91,15 @@ public final class Main extends JavaPlugin {
         this.createMessagesConfig();
         this.reloadMessagesConfig();
         this.saveMessagesConfig();
+        getMessagesConfig().options().copyDefaults();
+        saveMessagesConfig();
 
         this.createLocationsConfig();
         this.reloadLocationsConfig();
         this.saveLocationConfig();
+        getLocationsConfig().options().copyDefaults();
+        saveLocationConfig();
+
     }
 
     @Override

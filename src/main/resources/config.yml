@@ -1,13 +1,5 @@
 # Setup File For HydroHub
 
-# This is automatically filled when the command /setspawn has been run.
-worldSpawnName:
-worldSpawnX:
-worldSpawnY:
-worldSpawnZ:
-worldSpawnYaw:
-worldSpawnPitch:
-
 # Teleport To Spawn On Server Join
 gotoSpawnOnJoin: true
 # Teleport To Spawn On Player Death

@@ -27,16 +27,16 @@ public class SpawnCommand implements CommandExecutor {
             if (sender.hasPermission("hhub.member.command.spawnCommand")) {
                 Player p = (Player) sender;
 
-                if (plugin.getConfig().get("worldSpawnX") == null || plugin.getServer().getWorld(Objects.requireNonNull(plugin.getConfig().getString("worldSpawnName"))) == null) {
+                if (plugin.getLocationsConfig().get("worldSpawnX") == null || plugin.getServer().getWorld(Objects.requireNonNull(plugin.getLocationsConfig().getString("worldSpawnName"))) == null) {
                     p.sendMessage(format(pluginPrefix + "You cannot be teleported as it has been configured incorrectly. Please notify an admin and try again."));
                     plugin.getLogger().warning(p.getName() + " tried to execute /spawn but you have not ran the command /setspawn . Please do this to make the command functional.");
                     return true;
                 }
 
-                World world = plugin.getServer().getWorld(Objects.requireNonNull(plugin.getConfig().getString("worldSpawnName")));
-                double x = plugin.getConfig().getDouble("worldSpawnX");
+                World world = plugin.getServer().getWorld(Objects.requireNonNull(plugin.getLocationsConfig().getString("worldSpawnName")));
+                double x = plugin.getLocationsConfig().getDouble("worldSpawnX");
 
-                if (plugin.getConfig().getBoolean("spawnCommandDelay")) {
+                if (plugin.getLocationsConfig().getBoolean("spawnCommandDelay")) {
                     p.sendMessage(format(pluginPrefix + "You will be teleported to spawn in 5 seconds. You are allowed to move."));
                     fiveSecTimer(p);
                 } else {
@@ -61,12 +61,12 @@ public class SpawnCommand implements CommandExecutor {
     }
 
     private void teleportVoid(Player player) {
-        World world = plugin.getServer().getWorld(Objects.requireNonNull(plugin.getConfig().getString("worldSpawnName")));
-        double x = plugin.getConfig().getDouble("worldSpawnX");
-        double y = plugin.getConfig().getDouble("worldSpawnY");
-        double z = plugin.getConfig().getDouble("worldSpawnZ");
-        double yaw = plugin.getConfig().getDouble("worldSpawnYaw");
-        double pitch = plugin.getConfig().getDouble("worldSpawnPitch");
+        World world = plugin.getServer().getWorld(Objects.requireNonNull(plugin.getLocationsConfig().getString("worldSpawnName")));
+        double x = plugin.getLocationsConfig().getDouble("worldSpawnX");
+        double y = plugin.getLocationsConfig().getDouble("worldSpawnY");
+        double z = plugin.getLocationsConfig().getDouble("worldSpawnZ");
+        double yaw = plugin.getLocationsConfig().getDouble("worldSpawnYaw");
+        double pitch = plugin.getLocationsConfig().getDouble("worldSpawnPitch");
 
         player.teleport(new Location(world, x, y, z, (float)yaw, (float)pitch));
     }
