@@ -38,7 +38,6 @@ public class OnRespawnEvent implements Listener {
             if (plugin.getLocationsConfig().get("worldSpawnX") != null) {
                 player.teleport(new Location(world, x, y, z, (float) yaw, (float) pitch));
             } else {
-                player.sendMessage("Event Trigger");
                 return;
             }
         }

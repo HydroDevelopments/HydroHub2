@@ -9,6 +9,12 @@ gotoSpawnOnDeath: true
 spawnCommandDelay: true
 
 
+# Chat Settings
+# This sends a message when a member joins a lobby.
+# The message can be changed in messages.yml
+announcePlayerJoin: true
+
+
 # The block which triggers the launch event. This can be GOLD_BLOCK or EMERALD_BLOCK. No pressure plate is needed.
 boostPadBlock: 'EMERALD_BLOCK'
 

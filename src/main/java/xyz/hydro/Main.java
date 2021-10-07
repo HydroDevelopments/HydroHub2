@@ -11,6 +11,7 @@ import xyz.hydro.commands.*;
 import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
 import xyz.hydro.features.BoostPads;
+import xyz.hydro.features.chat.JoinMessage;
 import xyz.hydro.gui.BoostPadsGUI;
 
 import java.io.File;
@@ -80,6 +81,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new OnJoinEvents(this), this);
         pluginManager.registerEvents(new BoostPads(this), this);
         pluginManager.registerEvents(new BoostPadsGUI(this), this);
+        pluginManager.registerEvents(new JoinMessage(this), this);
 
 
         // Config Things.

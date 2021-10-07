@@ -1,1 +1,3 @@
-# HydroHub's Messages Config
+# HydroHub's Messages Config.
+
+defaultJoinMessage: "&7{player_name} Has Joined The Lobby!"
