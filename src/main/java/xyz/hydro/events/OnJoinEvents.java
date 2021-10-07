@@ -22,16 +22,26 @@ public class OnJoinEvents implements Listener {
 
         Player player = e.getPlayer();
 
-        // Player Spawn
-        World world = plugin.getServer().getWorld(Objects.requireNonNull(plugin.getConfig().getString("worldSpawnName")));
-        double x = plugin.getConfig().getDouble("worldSpawnX");
-        double y = plugin.getConfig().getDouble("worldSpawnY");
-        double z = plugin.getConfig().getDouble("worldSpawnZ");
-        double yaw = plugin.getConfig().getDouble("worldSpawnYaw");
-        double pitch = plugin.getConfig().getDouble("worldSpawnPitch");
+        if(plugin.getConfig().get("worldSpawnX") == null) {
+            return;
+        } else {
 
-        player.teleport(new Location(world, x, y, z, (float) yaw, (float) pitch));
 
+            // Player Spawn
+            World world = plugin.getServer().getWorld(Objects.requireNonNull(plugin.getConfig().getString("worldSpawnName")));
+            double x = plugin.getConfig().getDouble("worldSpawnX");
+            double y = plugin.getConfig().getDouble("worldSpawnY");
+            double z = plugin.getConfig().getDouble("worldSpawnZ");
+            double yaw = plugin.getConfig().getDouble("worldSpawnYaw");
+            double pitch = plugin.getConfig().getDouble("worldSpawnPitch");
+
+            if (plugin.getConfig().get("worldSpawnX") != null) {
+                player.teleport(new Location(world, x, y, z, (float) yaw, (float) pitch));
+            } else {
+                player.sendMessage("Event Trigger");
+                return;
+            }
+        }
     }
 
 }

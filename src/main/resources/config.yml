@@ -13,6 +13,9 @@ gotoSpawnOnJoin: true
 # Teleport To Spawn On Player Death
 gotoSpawnOnDeath: true
 
+# Adds a delay to /spawn if you want to.
+spawnCommandDelay: true
+
 
 # The block which triggers the launch event. This can be GOLD_BLOCK or EMERALD_BLOCK. No pressure plate is needed.
 boostPadBlock: 'EMERALD_BLOCK'
