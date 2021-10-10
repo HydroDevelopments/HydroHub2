@@ -15,6 +15,7 @@ import xyz.hydro.features.chat.PlayerJoinMessage;
 import xyz.hydro.gui.cosmetics.CosmeticsGui;
 import xyz.hydro.gui.cosmetics.TrailsGui;
 import xyz.hydro.gui.serverselector.ServerSelectorGUI;
+import xyz.hydro.particles.events.OnQuit;
 
 import java.io.File;
 import java.io.IOException;
@@ -97,6 +98,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new OnJoinEvents(this), this);
         pluginManager.registerEvents(new BoostPads(this), this);
         pluginManager.registerEvents(new PlayerJoinMessage(this), this);
+        pluginManager.registerEvents(new OnQuit(), this);
 
 
         // Config Things.
