@@ -11,7 +11,7 @@ import xyz.hydro.commands.*;
 import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
 import xyz.hydro.features.BoostPads;
-import xyz.hydro.features.chat.JoinMessage;
+import xyz.hydro.features.chat.PlayerJoinMessage;
 import xyz.hydro.gui.BoostPadsGUI;
 
 import java.io.File;
@@ -58,6 +58,18 @@ public final class Main extends JavaPlugin {
         this.permission = new Permission("hhub.member.boostPads.use");
         this.permission = new Permission("hhub.member.command.spawnCommand");
 
+        // Chat Permission
+        this.permission = new Permission("hhub.joinMessages.defaultMessagePermission");
+
+        this.permission = new Permission("hhub.joinMessages.rankOneMessagePermission");
+        this.permission = new Permission("hhub.joinMessages.rankTwoMessagePermission");
+        this.permission = new Permission("hhub.joinMessages.rankThreeMessagePermission");
+        this.permission = new Permission("hhub.joinMessages.rankFourMessagePermission");
+        this.permission = new Permission("hhub.joinMessages.rankFiveMessagePermission");
+
+        this.permission = new Permission("hhub.joinMessages.adminJoinMessage");
+        this.permission = new Permission("hhub.joinMessages.opJoinMessage");
+
     }
 
     @Override
@@ -81,7 +93,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new OnJoinEvents(this), this);
         pluginManager.registerEvents(new BoostPads(this), this);
         pluginManager.registerEvents(new BoostPadsGUI(this), this);
-        pluginManager.registerEvents(new JoinMessage(this), this);
+        pluginManager.registerEvents(new PlayerJoinMessage(this), this);
 
 
         // Config Things.
