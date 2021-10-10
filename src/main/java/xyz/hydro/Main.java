@@ -12,7 +12,6 @@ import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
 import xyz.hydro.features.BoostPads;
 import xyz.hydro.features.chat.PlayerJoinMessage;
-import xyz.hydro.gui.BoostPadsGUI;
 
 import java.io.File;
 import java.io.IOException;
@@ -84,7 +83,6 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("help")).setExecutor((new CustomHelpCommand(this)));
 
         // Registering Plugin Commands
-        Objects.requireNonNull(getCommand("boostpads")).setExecutor((new BoostPadsGUI(this)));
         Objects.requireNonNull(getCommand("setspawn")).setExecutor((new SetSpawnCommand(this)));
         Objects.requireNonNull(getCommand("spawn")).setExecutor((new SpawnCommand(this)));
 
@@ -92,7 +90,6 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new OnRespawnEvent(this), this);
         pluginManager.registerEvents(new OnJoinEvents(this), this);
         pluginManager.registerEvents(new BoostPads(this), this);
-        pluginManager.registerEvents(new BoostPadsGUI(this), this);
         pluginManager.registerEvents(new PlayerJoinMessage(this), this);
 
 
