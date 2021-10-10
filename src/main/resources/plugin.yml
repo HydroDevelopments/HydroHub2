@@ -31,7 +31,3 @@ commands:
     usage: /<command>
     aliases: ['hub', 'lobby']
     permission: hhub.member.command.spawnCommand
-  boostpads:
-    description: Opens the boostPads config in a GUI
-    usage: /<command>
-    permission: hhub.admin.commands.boostPadsCommand
