@@ -41,15 +41,6 @@ public class TrailsGui implements CommandExecutor {
 
         // Wings GUI Items
         GuiItem wingsOne = ItemBuilder.from(Material.BLACK_WOOL).setName("Black and White").asGuiItem(event -> {
-            if(particles.hasID()) {
-                particles.stopTrail();
-                particles.removeID();
-            }
-
-            trails.startWingTrail();
-            wingsGui.close(player);
-
-            player.sendMessage(format(pluginPrefix + "'Wings' Trail Selected!"));
 
             event.setCancelled(true);
         });
@@ -72,10 +63,25 @@ public class TrailsGui implements CommandExecutor {
             event.setCancelled(true);
         });
 
+        GuiItem dnaTrail = ItemBuilder.from(Material.ICE).setName(ChatColor.WHITE + "CrossLoop").asGuiItem(event -> {
+            if(particles.hasID()) {
+                particles.stopTrail();
+                particles.removeID();
+            }
+
+            trails.startCrossLoop();
+            wingsGui.close(player);
+
+            player.sendMessage(format(pluginPrefix + "'CrossLoop' Trail Selected!"));
+
+            event.setCancelled(true);
+        });
+
         // Wings GUI Items
 
-        trailsGui.setItem(2, 3, trailOne);
         trailsGui.setItem(2, 2, clearTrails);
+        trailsGui.setItem(2, 3, trailOne);
+        trailsGui.setItem(2, 4, dnaTrail);
 
         wingsGui.setItem(2, 2, wingsOne);
 

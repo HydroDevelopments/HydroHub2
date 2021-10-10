@@ -15,8 +15,10 @@ public class ParticleEffects {
         this.player = player;
     }
 
-    public void startWingTrail() {
-        taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
+    @SuppressWarnings("depreciated")
+
+    public void startCrossLoop() {
+        taskID = Bukkit.getScheduler().scheduleAsyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 
             double var = 0;
             Location loc, one, two;
@@ -35,10 +37,10 @@ public class ParticleEffects {
                 one = loc.clone().add(Math.cos(var), Math.sin(var) + 1, Math.sin(var));
                 two = loc.clone().add(Math.cos(var + Math.PI), Math.sin(var) + 1, Math.sin(var + Math.PI));
 
-                player.getWorld().spawnParticle(Particle.PORTAL, one, 0);
-                player.getWorld().spawnParticle(Particle.PORTAL, two, 0);
+                player.getWorld().spawnParticle(Particle.SPELL, one, 0);
+                player.getWorld().spawnParticle(Particle.SPELL, two, 0);
 
             }
-        }, 0, 10);
+        }, 0, 1);
     }
 }
