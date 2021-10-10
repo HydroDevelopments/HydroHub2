@@ -24,28 +24,28 @@ public class PlayerJoinMessage implements Listener {
 
         if(plugin.getConfig().getBoolean("announcePlayerJoin")) {
 
-            String joinDefault = format(plugin.getConfig().getString("defaultJoinMessage"));
+            String joinDefault = format(plugin.getMessagesConfig().getString("defaultJoinMessage"));
             joinDefault = PlaceholderAPI.setPlaceholders(player, joinDefault);
 
-            String joinRank1 = format(plugin.getConfig().getString("rankOneJoinMessage"));
+            String joinRank1 = format(plugin.getMessagesConfig().getString("rankOneJoinMessage"));
             joinRank1 = PlaceholderAPI.setPlaceholders(player, joinRank1);
 
-            String joinRank2 = format(plugin.getConfig().getString("rankTwoJoinMessage"));
+            String joinRank2 = format(plugin.getMessagesConfig().getString("rankTwoJoinMessage"));
             joinRank2 = PlaceholderAPI.setPlaceholders(player, joinRank2);
 
-            String joinRank3 = format(plugin.getConfig().getString("rankThreeJoinMessage"));
+            String joinRank3 = format(plugin.getMessagesConfig().getString("rankThreeJoinMessage"));
             joinRank3 = PlaceholderAPI.setPlaceholders(player, joinRank3);
 
-            String joinRank4 = format(plugin.getConfig().getString("rankFourJoinMessage"));
+            String joinRank4 = format(plugin.getMessagesConfig().getString("rankFourJoinMessage"));
             joinRank4 = PlaceholderAPI.setPlaceholders(player, joinRank4);
 
-            String joinRank5 = format(plugin.getConfig().getString("rankFiveJoinMessage"));
+            String joinRank5 = format(plugin.getMessagesConfig().getString("rankFiveJoinMessage"));
             joinRank5 = PlaceholderAPI.setPlaceholders(player, joinRank5);
 
-            String joinAdmin = format(plugin.getConfig().getString("adminJoinMessage"));
+            String joinAdmin = format(plugin.getMessagesConfig().getString("adminJoinMessage"));
             joinAdmin = PlaceholderAPI.setPlaceholders(player, joinAdmin);
 
-            String joinOp = format(plugin.getConfig().getString("opJoinMessage"));
+            String joinOp = format(plugin.getMessagesConfig().getString("opJoinMessage"));
             joinOp = PlaceholderAPI.setPlaceholders(player, joinOp);
 
             // Member Messages

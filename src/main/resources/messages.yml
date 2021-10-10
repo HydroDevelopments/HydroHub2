@@ -2,18 +2,18 @@
 # Please refer to the HydroHub Wiki for this section, if you're confused,
 # or want some information about what does what.
 
-defaultJoinMessage: "&7{player_name} Has Joined The Lobby!"
+defaultJoinMessage: "&7%player_name% Has Joined The Lobby!"
 
-rankOneJoinMessage: "&b[VIP]&6{player_name} &6Has Joined The Lobby!"
+rankOneJoinMessage: "&b[VIP]&6%player_name% &6Has Joined The Lobby!"
 
-rankTwoJoinMessage: "&b&l[VIP&6&l+&b&l]&6{player_name} &6Has Joined The Lobby!"
+rankTwoJoinMessage: "&b&l[VIP&6&l+&b&l]&6%player_name% &6Has Joined The Lobby!"
 
-rankThreeJoinMessage: "&b&l[VIP&6&l++&b&l]&6{player_name} &6Has Joined The Lobby!"
+rankThreeJoinMessage: "&b&l[VIP&6&l++&b&l]&6%player_name% &6Has Joined The Lobby!"
 
-rankFourJoinMessage: "&6[&3&lVIP&6]&b{player_name} &bHas Joined The Lobby!"
+rankFourJoinMessage: "&6[&3&lVIP&6]&b%player_name% &bHas Joined The Lobby!"
 
-rankFiveJoinMessage: "&6&l[&3&lVIP&5l+&6&l]&b{player_name} &bHas Joined The Lobby!"
+rankFiveJoinMessage: "&6&l[&3&lVIP&5l+&6&l]&b%player_name% &bHas Joined The Lobby!"
 
-adminJoinMessage: "&c&l[ADMIN]{player_name}&c Has Joined The Lobby!"
+adminJoinMessage: "&c&l[ADMIN]%player_name%&c Has Joined The Lobby!"
 
-opJoinMessage: "&k!&r&6&l[OWNER]{player_name}&r&k!&r&b&lHas Joined The Lobby!"
+opJoinMessage: "&k!&r&6&l[OWNER]%player_name%&r&k!&r&b&lHas Joined The Lobby!"
