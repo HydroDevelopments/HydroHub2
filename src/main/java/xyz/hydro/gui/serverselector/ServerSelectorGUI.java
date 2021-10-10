@@ -24,7 +24,7 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Server Selector GUI
 
-        Gui server = new Gui(9, ChatColor.GRAY + "Server Selector");
+        Gui server = new Gui(6, ChatColor.GRAY + "Server Selector");
         server.setDefaultClickAction(event -> {
             event.setCancelled(true);
         });
@@ -41,7 +41,7 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
             if (sender.hasPermission("hhub.members.command.serverSelectorCommand")) {
 
-
+                server.open(player);
 
             }
         }

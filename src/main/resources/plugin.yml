@@ -31,3 +31,12 @@ commands:
     usage: /<command>
     aliases: ['hub', 'lobby']
     permission: hhub.member.command.spawnCommand
+  cosmetics:
+    description: Opens the cosmetics GUI.
+    permission: hhub.member.command.cosmeticsCommand
+  serverselector:
+    description: Opends the server selector GUI.
+    permission: hhub.member.command.serverSelectorCommand
+  trails:
+    description: Opens the trails cosmetic GUI
+    permission: hhub.member.command.trailsCommand

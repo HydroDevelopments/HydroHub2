@@ -12,6 +12,9 @@ import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
 import xyz.hydro.features.BoostPads;
 import xyz.hydro.features.chat.PlayerJoinMessage;
+import xyz.hydro.gui.cosmetics.CosmeticsGui;
+import xyz.hydro.gui.cosmetics.TrailsGui;
+import xyz.hydro.gui.serverselector.ServerSelectorGUI;
 
 import java.io.File;
 import java.io.IOException;
@@ -85,6 +88,9 @@ public final class Main extends JavaPlugin {
         // Registering Plugin Commands
         Objects.requireNonNull(getCommand("setspawn")).setExecutor((new SetSpawnCommand(this)));
         Objects.requireNonNull(getCommand("spawn")).setExecutor((new SpawnCommand(this)));
+        Objects.requireNonNull(getCommand("serverselector")).setExecutor((new ServerSelectorGUI(this)));
+        Objects.requireNonNull(getCommand("trails")).setExecutor((new TrailsGui(this)));
+        Objects.requireNonNull(getCommand("cosmetics")).setExecutor((new CosmeticsGui(this)));
 
         // Event Registering Goes Here!
         pluginManager.registerEvents(new OnRespawnEvent(this), this);
