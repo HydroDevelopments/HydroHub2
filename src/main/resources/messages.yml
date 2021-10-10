@@ -2,6 +2,8 @@
 # Please refer to the HydroHub Wiki for this section, if you're confused,
 # or want some information about what does what.
 
+pluginPrefix: "&c[HydroHub] &r"
+
 defaultJoinMessage: "&7%player_name% Has Joined The Lobby!"
 
 rankOneJoinMessage: "&b[VIP] &6%player_name% &6Has Joined The Lobby!"

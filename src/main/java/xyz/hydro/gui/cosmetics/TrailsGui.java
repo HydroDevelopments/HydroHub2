@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import xyz.hydro.Main;
 import xyz.hydro.particles.ParticleEffects;
@@ -63,7 +64,7 @@ public class TrailsGui implements CommandExecutor {
             event.setCancelled(true);
         });
 
-        GuiItem dnaTrail = ItemBuilder.from(Material.ICE).setName(ChatColor.WHITE + "CrossLoop").asGuiItem(event -> {
+        GuiItem crossLoopTrail = ItemBuilder.from(Material.ICE).setName(ChatColor.WHITE + "CrossLoop").asGuiItem(event -> {
             if(particles.hasID()) {
                 particles.stopTrail();
                 particles.removeID();
@@ -77,11 +78,56 @@ public class TrailsGui implements CommandExecutor {
             event.setCancelled(true);
         });
 
+        GuiItem hotHeadTrail = ItemBuilder.from(Material.FLINT_AND_STEEL).setName(ChatColor.RED + "Hot-Head").asGuiItem(event -> {
+            if(particles.hasID()) {
+                particles.stopTrail();
+                particles.removeID();
+            }
+
+            trails.startHotHeadLoop();
+            wingsGui.close(player);
+
+            player.sendMessage(format(pluginPrefix + "'Hot-Head' Trail Selected!"));
+
+            event.setCancelled(true);
+        });
+
+        GuiItem haloTrail = ItemBuilder.from(Material.ARROW).setName(ChatColor.YELLOW + "Halo").asGuiItem(event -> {
+            if(particles.hasID()) {
+                particles.stopTrail();
+                particles.removeID();
+            }
+
+            trails.startHaloLoop();
+            wingsGui.close(player);
+
+            player.sendMessage(format(pluginPrefix + "'Halo' Trail Selected!"));
+
+            event.setCancelled(true);
+        });
+
+        GuiItem rainbowRain = ItemBuilder.from(Material.WATER_BUCKET).setName(format("&aR&ba&ci&dn&eb&fb&1o&2w")).asGuiItem(event -> {
+            if(particles.hasID()) {
+                particles.stopTrail();
+                particles.removeID();
+            }
+
+            //trails.startRainbowRainLoop();
+            wingsGui.close(player);
+
+            player.sendMessage(format(pluginPrefix + "&aR&ba&ci&dn&eb&fb&1o&2w &bRain' Trail Selected!"));
+
+            event.setCancelled(true);
+        });
+
         // Wings GUI Items
 
         trailsGui.setItem(2, 2, clearTrails);
         trailsGui.setItem(2, 3, trailOne);
-        trailsGui.setItem(2, 4, dnaTrail);
+        trailsGui.setItem(2, 4, crossLoopTrail);
+        trailsGui.setItem(2, 5, hotHeadTrail);
+        trailsGui.setItem(2, 6, haloTrail);
+        trailsGui.setItem(2, 7, rainbowRain);
 
         wingsGui.setItem(2, 2, wingsOne);
 
