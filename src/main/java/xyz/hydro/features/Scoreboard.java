@@ -72,6 +72,8 @@ public class Scoreboard implements Listener {
         String title1 = format(plugin.getConfig().getString("scoreboardTitle"));
         char[] split = Objects.requireNonNull(title).toCharArray();
 
+
+        // Scoreboard Animation
         new BukkitRunnable() {
             int counter = 0;
             String finaltitle = "";
@@ -98,7 +100,7 @@ public class Scoreboard implements Listener {
                     counter = 0;
                 }
             }
-        }.runTaskTimer(plugin, 0, 8);
+        }.runTaskAsynchronously(plugin);
 
         player.setScoreboard(scoreboard);
     }

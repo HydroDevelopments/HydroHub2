@@ -19,3 +19,11 @@ rankFiveJoinMessage: "&6&l[&3&lVIP&5l+&6&l] &b%player_name% &bHas Joined The Lob
 adminJoinMessage: "&c&l[ADMIN] %player_name%&c Has Joined The Lobby!"
 
 opJoinMessage: "&k! &r&6&l[OWNER] %player_name% &r&k! &r&b&lHas Joined The Lobby!"
+
+#########################################################################################
+scoreboardAnimationPreset: FLASH
+scoreboardTitle: "ScoreboardTitle"
+scoreboardLines:
+  - "LineOne"
+  - "LineTwo"
+  - "LineThree"
