@@ -38,7 +38,6 @@ public class ReloadCommand implements CommandExecutor {
                     plugin.reloadLocationsConfig();
                     plugin.getLocationsConfig().options().copyDefaults();
                     plugin.getLogger().info("Reloaded locations.yml");
-                    plugin.getLogger().info("Reloaded all config files successfully.");
 
                 sender.sendMessage(format(pluginPrefix + "&aAll Config Files Have Been Reloaded."));
                 return true;
