@@ -1,5 +1,6 @@
 package xyz.hydro.commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,7 +23,9 @@ public class CustomHelpCommand implements CommandExecutor {
 
             if (sender.hasPermission("hhub.members.command.helpCommand")) {
 
-
+                for (String msg : plugin.getMessagesConfig().getStringList("helpMenu.strings")) {
+                    player.sendMessage(format(msg));
+                }
 
             }
 
@@ -30,6 +33,10 @@ public class CustomHelpCommand implements CommandExecutor {
 
 
         return true;
+    }
+
+    private String format(String msg) {
+        return ChatColor.translateAlternateColorCodes('&', msg);
     }
 
 }

@@ -27,48 +27,49 @@ public class TabList implements Listener {
         if(headers.isEmpty() && footers.isEmpty())
             return;
 
-        if(!plugin.getConfig().getBoolean("tabListEnabled"))
+        if(!plugin.getConfig().getBoolean("tabListEnabled")) {
             return;
-
+        } else {
             Bukkit.getScheduler().scheduleAsyncRepeatingTask(plugin, new Runnable() {
-            PacketPlayOutPlayerListHeaderFooter packet = new PacketPlayOutPlayerListHeaderFooter();
-            int headCount = 0;
-            int footCount = 0;
+                PacketPlayOutPlayerListHeaderFooter packet = new PacketPlayOutPlayerListHeaderFooter();
+                int headCount = 0;
+                int footCount = 0;
 
-            @Override
-            public void run() {
-                try {
+                @Override
+                public void run() {
+                    try {
 
-                    Field a = packet.getClass().getDeclaredField("header");
-                    a.setAccessible(true);
-                    Field b = packet.getClass().getDeclaredField("footer");
-                    b.setAccessible(true);
+                        Field a = packet.getClass().getDeclaredField("header");
+                        a.setAccessible(true);
+                        Field b = packet.getClass().getDeclaredField("footer");
+                        b.setAccessible(true);
 
-                    if(headCount >= headers.size())
-                        headCount = 0;
+                        if (headCount >= headers.size())
+                            headCount = 0;
 
-                    if(footCount >= footers.size())
-                        footCount = 0;
+                        if (footCount >= footers.size())
+                            footCount = 0;
 
-                    a.set(packet, headers.get(headCount));
-                    b.set(packet, footers.get(footCount));
+                        a.set(packet, headers.get(headCount));
+                        b.set(packet, footers.get(footCount));
 
-                    if(Bukkit.getOnlinePlayers().size() != 0) {
-                        for(Player player : Bukkit.getOnlinePlayers()) {
-                            ((CraftPlayer)player).getHandle().playerConnection.sendPacket(packet);
+                        if (Bukkit.getOnlinePlayers().size() != 0) {
+                            for (Player player : Bukkit.getOnlinePlayers()) {
+                                ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
+                            }
                         }
+
+                        headCount++;
+                        footCount++;
+
+                    } catch (Exception e) {
+                        // Log any errors.
+                        e.printStackTrace();
                     }
 
-                    headCount++;
-                    footCount++;
-
-                }catch(Exception e) {
-                    // Log any errors.
-                    e.printStackTrace();
                 }
-
-            }
-        }, 10, 40);
+            }, 10, 40);
+        }
     }
 
     public void addHeader(String header) {

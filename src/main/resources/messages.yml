@@ -21,13 +21,15 @@ adminJoinMessage: "&c&l[ADMIN] %player_name%&c Has Joined The Lobby!"
 opJoinMessage: "&k! &r&6&l[OWNER] %player_name% &r&k! &r&b&lHas Joined The Lobby!"
 
 #########################################################################################
-scoreboardTitle: "ScoreboardTitle"
+
+scoreboardTitle: "HydroMC"
 scoreboardLineOne: " "
 scoreboardLineTwo: "&bName: %player_name%"
 scoreboardLineThree: "&r"
 scoreboardLineFour: "&cServer: Hub-1"
 scoreboardLineFive: ""
 scoreboardWeb: '&e&owww.example.com'
+
 #########################################################################################
 tabListHeader:
   lines:
@@ -40,3 +42,11 @@ tabListFooter:
   - "&6%player_name%, &7Balance: %player_balance%"
   - "&b%player_name%, &2Balance: %player_balance%"
   - "&c%player_name%, &dBalance: %player_balance%"
+
+#########################################################################################
+helpMenu:
+  strings:
+    - "&b-----------&a+&b-----------"
+    - "&dFor help, head over to"
+    - "&ehttps://example.com/faq"
+    - "&b-----------&a+&b-----------"
