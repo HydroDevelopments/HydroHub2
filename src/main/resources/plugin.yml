@@ -6,7 +6,7 @@ prefix: HydroHub
 load: STARTUP
 authors: [ jiggey, Rismose ]
 softdepend:
-  - PlaceHolderAPI
+  - PlaceholderAPI
 description: A hub core plugin, made for servers who handle a lot of lobby servers.
 commands:
   help:

@@ -4,6 +4,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,7 +28,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
-public final class Main extends JavaPlugin {
+public final class Main extends JavaPlugin implements Listener {
 
     public Permission permission;
 
@@ -99,6 +104,7 @@ public final class Main extends JavaPlugin {
         pluginManager.registerEvents(new BoostPads(this), this);
         pluginManager.registerEvents(new PlayerJoinMessage(this), this);
         pluginManager.registerEvents(new OnQuit(), this);
+        pluginManager.registerEvents(this, this);
 
 
         // Config Things.
@@ -124,6 +130,22 @@ public final class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    // Disables default join messages
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onPlayerJoinEvent1(final PlayerJoinEvent event) throws Exception {
+        if (getConfig().getBoolean("disableDefaultJoinMessages")) {
+            event.setJoinMessage("");
+        }
+    }
+
+    // Disables default leave messages.
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onPlayerQuitEvent2(final PlayerQuitEvent event) throws Exception {
+        if (getConfig().getBoolean("disableDefaultJoinMessages")) {
+            event.setQuitMessage("");
+        }
     }
 
 

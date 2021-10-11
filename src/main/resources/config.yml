@@ -14,6 +14,9 @@ spawnCommandDelay: true
 # The message can be changed in messages.yml
 announcePlayerJoin: true
 
+# This disables the default Minecraft join / leave messages.
+disableDefaultJoinMessages: true
+
 
 # The block which triggers the launch event. This can be GOLD_BLOCK or EMERALD_BLOCK. No pressure plate is needed.
 boostPadBlock: 'EMERALD_BLOCK'
