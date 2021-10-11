@@ -4,6 +4,12 @@
 
 pluginPrefix: "&c[HydroHub] &r"
 
+firstWelcomeTitle: "&6First Join!"
+firstWelcomeSub: "&5Welcome To HydroMC!"
+
+returningWelcomeTitle: "&6Welcome Back!"
+returningWelcomeSub: "We Hope You Enjoy Your Stay!"
+
 defaultJoinMessage: "&7%player_name% Has Joined The Lobby!"
 
 rankOneJoinMessage: "&b[VIP] &6%player_name% &6Has Joined The Lobby!"

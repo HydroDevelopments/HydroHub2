@@ -1,9 +1,11 @@
 package xyz.hydro;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -19,6 +21,7 @@ import xyz.hydro.events.OnRespawnEvent;
 import xyz.hydro.features.BoostPads;
 import xyz.hydro.features.Scoreboard;
 import xyz.hydro.features.TabList;
+import xyz.hydro.features.WelcomeScreen;
 import xyz.hydro.features.chat.PlayerJoinMessage;
 import xyz.hydro.gui.cosmetics.CosmeticsGui;
 import xyz.hydro.gui.cosmetics.TrailsGui;
@@ -89,6 +92,8 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        Player player;
+
         // Config Things.
         this.saveDefaultConfig();
         this.reloadConfig();
@@ -158,6 +163,7 @@ public final class Main extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new PlayerJoinMessage(this), this);
         pluginManager.registerEvents(new OnQuit(), this);
         pluginManager.registerEvents(new Scoreboard(this), this);
+        pluginManager.registerEvents(new WelcomeScreen(this), this);
         pluginManager.registerEvents(this, this);
 
     }
