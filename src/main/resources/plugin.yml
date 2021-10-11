@@ -40,3 +40,27 @@ commands:
   trails:
     description: Opens the trails cosmetic GUI
     permission: hhub.member.command.trailsCommand
+  gm:
+    description: Short Gamemode Commands
+    usage: /<command>
+    permission: hhub.admin.commands.smallCommands
+  gms:
+    description: Short Gamemode Commands
+    usage: /<command>
+    permission: hhub.admin.commands.smallCommands
+  gmc:
+    description: Short Gamemode Commands
+    usage: /<command>
+    permission: hhub.admin.commands.smallCommands
+  gma:
+    description: Short Gamemode Commands
+    usage: /<command>
+    permission: hhub.admin.commands.smallCommands
+  gm3:
+    description: Short Gamemode Commands
+    usage: /<command>
+    permission: hhub.admin.commands.smallCommands
+  gmsp:
+    description: Short Gamemode Commands
+    usage: /<command>
+    permission: hhub.admin.commands.smallCommands

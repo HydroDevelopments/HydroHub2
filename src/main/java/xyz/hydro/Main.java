@@ -67,6 +67,7 @@ public final class Main extends JavaPlugin implements Listener {
         this.permission = new Permission("hhub.admin.command.reloadExecution");
         this.permission = new Permission("hhub.admin.command.setWorldSpawn");
         this.permission = new Permission("hhub.admin.commands.boostPadsCommand");
+        this.permission = new Permission("hhub.admin.commands.smallCommands");
 
         // Member Permissions
         this.permission = new Permission("hhub.member.boostPads.use");
@@ -142,6 +143,13 @@ public final class Main extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("serverselector")).setExecutor((new ServerSelectorGUI(this)));
         Objects.requireNonNull(getCommand("trails")).setExecutor((new TrailsGui(this)));
         Objects.requireNonNull(getCommand("cosmetics")).setExecutor((new CosmeticsGui(this)));
+
+        // Gamemode Commands
+        Objects.requireNonNull(getCommand("gm")).setExecutor((new ShortCommands(this)));
+        Objects.requireNonNull(getCommand("gmc")).setExecutor((new ShortCommands(this)));
+        Objects.requireNonNull(getCommand("gms")).setExecutor((new ShortCommands(this)));
+        Objects.requireNonNull(getCommand("gma")).setExecutor((new ShortCommands(this)));
+        Objects.requireNonNull(getCommand("gm3")).setExecutor((new ShortCommands(this)));
 
         // Event Registering Goes Here!
         pluginManager.registerEvents(new OnRespawnEvent(this), this);
