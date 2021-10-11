@@ -127,7 +127,7 @@ public final class Main extends JavaPlugin implements Listener {
             }
 
             tab.showTab();
-        } catch(Exception e) {
+        } catch(NullPointerException e) {
             e.printStackTrace();
             getLogger().warning("Something went wrong when initializing the TABList.");
         }
