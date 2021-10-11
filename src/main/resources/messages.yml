@@ -28,3 +28,15 @@ scoreboardLineThree: "&r"
 scoreboardLineFour: "&cServer: Hub-1"
 scoreboardLineFive: ""
 scoreboardWeb: '&e&owww.example.com'
+#########################################################################################
+tabListHeader:
+  lines:
+  - "&6Welcome To HydroMC"
+  - "&bWelcome To HydroMC"
+  - "&cWelcome To HydroMC"
+
+tabListFooter:
+  lines:
+  - "&6%player_name%, &7Balance: %player_balance%"
+  - "&b%player_name%, &2Balance: %player_balance%"
+  - "&c%player_name%, &dBalance: %player_balance%"

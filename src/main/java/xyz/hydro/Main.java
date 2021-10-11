@@ -18,6 +18,7 @@ import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
 import xyz.hydro.features.BoostPads;
 import xyz.hydro.features.Scoreboard;
+import xyz.hydro.features.TabList;
 import xyz.hydro.features.chat.PlayerJoinMessage;
 import xyz.hydro.gui.cosmetics.CosmeticsGui;
 import xyz.hydro.gui.cosmetics.TrailsGui;
@@ -28,11 +29,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Objects;
 
 public final class Main extends JavaPlugin implements Listener {
 
     public Permission permission;
+
+    public TabList tab;
 
     public static double pluginVersion;
 
@@ -84,6 +88,45 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        // Config Things.
+        this.saveDefaultConfig();
+        this.reloadConfig();
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
+        this.createMessagesConfig();
+        this.reloadMessagesConfig();
+        this.saveMessagesConfig();
+        getMessagesConfig().options().copyDefaults();
+        saveMessagesConfig();
+
+        this.createLocationsConfig();
+        this.reloadLocationsConfig();
+        this.saveLocationConfig();
+        getLocationsConfig().options().copyDefaults();
+        saveLocationConfig();
+
+        // TABList things
+        this.tab = new TabList(this);
+        List<String> tabListHeader = getMessagesConfig().getStringList("tabListHeader.lines");
+        List<String> tabListFooter = getMessagesConfig().getStringList("tabListFooter.lines");
+
+        try {
+            for (String title : tabListHeader) {
+                tab.addHeader(title);
+            }
+
+            for (String foot : tabListFooter) {
+                tab.addFooter(foot);
+            }
+
+            tab.showTab();
+        } catch(Exception e) {
+            e.printStackTrace();
+            getLogger().warning("Something went wrong when initializing the TABList.");
+        }
+
+
         // Permissions
         final PluginManager pluginManager = this.getServer().getPluginManager();
         pluginManager.addPermission(this.permission);
@@ -108,25 +151,6 @@ public final class Main extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new OnQuit(), this);
         pluginManager.registerEvents(new Scoreboard(this), this);
         pluginManager.registerEvents(this, this);
-
-
-        // Config Things.
-        this.saveDefaultConfig();
-        this.reloadConfig();
-        getConfig().options().copyDefaults();
-        saveDefaultConfig();
-
-        this.createMessagesConfig();
-        this.reloadMessagesConfig();
-        this.saveMessagesConfig();
-        getMessagesConfig().options().copyDefaults();
-        saveMessagesConfig();
-
-        this.createLocationsConfig();
-        this.reloadLocationsConfig();
-        this.saveLocationConfig();
-        getLocationsConfig().options().copyDefaults();
-        saveLocationConfig();
 
     }
 

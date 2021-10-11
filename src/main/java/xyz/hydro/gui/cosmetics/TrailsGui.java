@@ -60,7 +60,10 @@ public class TrailsGui implements CommandExecutor {
         });
 
         GuiItem trailOne = ItemBuilder.from(Material.FEATHER).setName(ChatColor.WHITE + "Wings").asGuiItem(event -> {
-            wingsGui.open(player);
+            //wingsGui.open(player);
+
+
+
             event.setCancelled(true);
         });
 
@@ -106,7 +109,7 @@ public class TrailsGui implements CommandExecutor {
             event.setCancelled(true);
         });
 
-        GuiItem rainbowRain = ItemBuilder.from(Material.WATER_BUCKET).setName(format("&aR&ba&ci&dn&eb&fb&1o&2w")).asGuiItem(event -> {
+        /*GuiItem rainbowRain = ItemBuilder.from(Material.WATER_BUCKET).setName(format("&3Rainbow")).asGuiItem(event -> {
             if(particles.hasID()) {
                 particles.stopTrail();
                 particles.removeID();
@@ -115,10 +118,10 @@ public class TrailsGui implements CommandExecutor {
             //trails.startRainbowRainLoop();
             wingsGui.close(player);
 
-            player.sendMessage(format(pluginPrefix + "&aR&ba&ci&dn&eb&fb&1o&2w &bRain' Trail Selected!"));
+            player.sendMessage(format(pluginPrefix + "&3Rainbow' Trail Selected!"));
 
             event.setCancelled(true);
-        });
+        });*/
 
         // Wings GUI Items
 
@@ -127,9 +130,9 @@ public class TrailsGui implements CommandExecutor {
         trailsGui.setItem(2, 4, crossLoopTrail);
         trailsGui.setItem(2, 5, hotHeadTrail);
         trailsGui.setItem(2, 6, haloTrail);
-        trailsGui.setItem(2, 7, rainbowRain);
+        //trailsGui.setItem(2, 7, rainbowRain);
 
-        wingsGui.setItem(2, 2, wingsOne);
+        //wingsGui.setItem(2, 2, wingsOne);
 
         if (cmd.getName().equalsIgnoreCase("trails")) {
 

@@ -73,7 +73,7 @@ public class Scoreboard implements Listener {
         char[] split = Objects.requireNonNull(title).toCharArray();
 
 
-        // Scoreboard Animation
+        // Scoreboard Type Animation
         new BukkitRunnable() {
             int counter = 0;
             String finaltitle = "";

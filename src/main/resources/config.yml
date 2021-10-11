@@ -35,3 +35,6 @@ boostPadHeightMultiplier: 1.0
 
 # Scoreboard - To change messages, go to messages.yml !
 scoreboardEnabled: true
+
+# TABList - Enable An Animated or Static TABList.
+tabListEnabled: true
