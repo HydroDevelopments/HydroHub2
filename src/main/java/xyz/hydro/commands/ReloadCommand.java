@@ -23,12 +23,22 @@ public class ReloadCommand implements CommandExecutor {
 
             if(sender.hasPermission("hhub.admin.command.reloadExecution")) {
 
+                    plugin.getLogger().info("Starting Reload...");
                     plugin.getLogger().info("Reloading config.yml...");
                     plugin.saveDefaultConfig();
                     plugin.reloadConfig();
                     plugin.getConfig().options().copyDefaults();
                     plugin.saveDefaultConfig();
                     plugin.getLogger().info("Reloaded config.yml!");
+                    plugin.saveMessagesConfig();
+                    plugin.reloadMessagesConfig();
+                    plugin.getMessagesConfig().options().copyDefaults();
+                    plugin.getLogger().info("Reloaded messages.yml!");
+                    plugin.saveLocationConfig();
+                    plugin.reloadLocationsConfig();
+                    plugin.getLocationsConfig().options().copyDefaults();
+                    plugin.getLogger().info("Reloaded locations.yml");
+                    plugin.getLogger().info("Reloaded all config files successfully.");
 
                 sender.sendMessage(format(pluginPrefix + "&aAll Config Files Have Been Reloaded."));
                 return true;

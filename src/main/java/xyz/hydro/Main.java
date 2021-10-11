@@ -12,10 +12,12 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Score;
 import xyz.hydro.commands.*;
 import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
 import xyz.hydro.features.BoostPads;
+import xyz.hydro.features.Scoreboard;
 import xyz.hydro.features.chat.PlayerJoinMessage;
 import xyz.hydro.gui.cosmetics.CosmeticsGui;
 import xyz.hydro.gui.cosmetics.TrailsGui;
@@ -104,6 +106,7 @@ public final class Main extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new BoostPads(this), this);
         pluginManager.registerEvents(new PlayerJoinMessage(this), this);
         pluginManager.registerEvents(new OnQuit(), this);
+        pluginManager.registerEvents(new Scoreboard(this), this);
         pluginManager.registerEvents(this, this);
 
 

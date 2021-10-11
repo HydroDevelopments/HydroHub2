@@ -23,25 +23,25 @@ public class Scoreboard implements Listener {
         Player player = event.getPlayer();
 
         // String + PAPI Intergration!
-        String title = format(plugin.getConfig().getString("scoreboardTitle"));
+        String title = format(plugin.getMessagesConfig().getString("scoreboardTitle"));
         title = PlaceholderAPI.setPlaceholders(player, title);
 
-        String input1 = format(plugin.getConfig().getString("scoreboardLineOne"));
+        String input1 = format(plugin.getMessagesConfig().getString("scoreboardLineOne"));
         input1 = PlaceholderAPI.setPlaceholders(player, input1);
 
-        String input2 = format(plugin.getConfig().getString("scoreboardLineTwo"));
+        String input2 = format(plugin.getMessagesConfig().getString("scoreboardLineTwo"));
         input2 = PlaceholderAPI.setPlaceholders(player, input2);
 
-        String input3 = format(plugin.getConfig().getString("scoreboardLineThree"));
+        String input3 = format(plugin.getMessagesConfig().getString("scoreboardLineThree"));
         input3 = PlaceholderAPI.setPlaceholders(player, input3);
 
-        String input4 = format(plugin.getConfig().getString("scoreboardLineFour"));
+        String input4 = format(plugin.getMessagesConfig().getString("scoreboardLineFour"));
         input4 = PlaceholderAPI.setPlaceholders(player, input4);
 
-        String input5 = format(plugin.getConfig().getString("scoreboardLineFive"));
+        String input5 = format(plugin.getMessagesConfig().getString("scoreboardLineFive"));
         input5 = PlaceholderAPI.setPlaceholders(player, input5);
 
-        String web1 = format(plugin.getConfig().getString("scoreboardWeb"));
+        String web1 = format(plugin.getMessagesConfig().getString("scoreboardWeb"));
         web1 = PlaceholderAPI.setPlaceholders(player, web1);
 
 
@@ -69,7 +69,7 @@ public class Scoreboard implements Listener {
         Score score6 = objective.getScore(web1);
         score6.setScore(1);
 
-        String title1 = format(plugin.getConfig().getString("scoreboardTitle"));
+        String title1 = format(plugin.getMessagesConfig().getString("scoreboardTitle"));
         char[] split = Objects.requireNonNull(title).toCharArray();
 
 
@@ -100,7 +100,7 @@ public class Scoreboard implements Listener {
                     counter = 0;
                 }
             }
-        }.runTaskAsynchronously(plugin);
+        }.runTaskTimerAsynchronously(plugin, 0, 8);
 
         player.setScoreboard(scoreboard);
     }

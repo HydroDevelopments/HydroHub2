@@ -21,9 +21,10 @@ adminJoinMessage: "&c&l[ADMIN] %player_name%&c Has Joined The Lobby!"
 opJoinMessage: "&k! &r&6&l[OWNER] %player_name% &r&k! &r&b&lHas Joined The Lobby!"
 
 #########################################################################################
-scoreboardAnimationPreset: FLASH
 scoreboardTitle: "ScoreboardTitle"
-scoreboardLines:
-  - "LineOne"
-  - "LineTwo"
-  - "LineThree"
+scoreboardLineOne: " "
+scoreboardLineTwo: "&bName: %player_name%"
+scoreboardLineThree: "&r"
+scoreboardLineFour: "&cServer: Hub-1"
+scoreboardLineFive: ""
+scoreboardWeb: '&e&owww.example.com'
