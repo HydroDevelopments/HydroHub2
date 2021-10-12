@@ -25,17 +25,25 @@ public class ReloadCommand implements CommandExecutor {
 
                     plugin.getLogger().info("Starting Reload...");
                     plugin.getLogger().info("Reloading config.yml...");
+
+                    // Reloads Default Config (config.yml)
                     plugin.saveDefaultConfig();
                     plugin.reloadConfig();
                     plugin.getConfig().options().copyDefaults();
                     plugin.saveDefaultConfig();
                     plugin.getLogger().info("Reloaded config.yml!");
+
+                    // Reloads Messages Config (messages.yml)
                     plugin.reloadMessagesConfig();
                     plugin.saveMessagesConfig();
                     plugin.getLogger().info("Reloaded messages.yml!");
+
+                    // Reloads Locations Config (locations.yml)
                     plugin.reloadLocationsConfig();
                     plugin.saveLocationConfig();
                     plugin.getLogger().info("Reloaded locations.yml");
+
+
                     plugin.getLogger().info("Successfully Reloaded All Config Files.");
 
                 sender.sendMessage(format(pluginPrefix + "&aAll Config Files Have Been Reloaded. Some changes may require a restart or a re-log."));
