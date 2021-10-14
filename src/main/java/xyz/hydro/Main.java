@@ -1,6 +1,7 @@
 package xyz.hydro;
 
 import me.clip.placeholderapi.PlaceholderAPI;
+import net.minecraft.server.v1_16_R3.Particle;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -26,6 +27,7 @@ import xyz.hydro.features.chat.PlayerJoinMessage;
 import xyz.hydro.gui.cosmetics.CosmeticsGui;
 import xyz.hydro.gui.cosmetics.TrailsGui;
 import xyz.hydro.gui.serverselector.ServerSelectorGUI;
+import xyz.hydro.particles.ParticleEffects;
 import xyz.hydro.particles.events.OnQuit;
 
 import java.io.File;

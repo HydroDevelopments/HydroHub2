@@ -30,7 +30,7 @@ public class TrailsGui implements CommandExecutor {
         ParticleMainHandler particles = new ParticleMainHandler(player.getUniqueId());
         ParticleEffects trails = new ParticleEffects(player);
 
-        Gui trailsGui = new Gui(6, ChatColor.GRAY + "Trails");
+        Gui trailsGui = new Gui(5, ChatColor.GRAY + "Trails");
         trailsGui.setDefaultClickAction(event -> {
             event.setCancelled(true);
         });
@@ -109,28 +109,60 @@ public class TrailsGui implements CommandExecutor {
             event.setCancelled(true);
         });
 
-        /*GuiItem rainbowRain = ItemBuilder.from(Material.WATER_BUCKET).setName(format("&3Rainbow")).asGuiItem(event -> {
+        GuiItem milkRain = ItemBuilder.from(Material.MILK_BUCKET).setName(ChatColor.WHITE + "Milk Rain").asGuiItem(event -> {
             if(particles.hasID()) {
                 particles.stopTrail();
                 particles.removeID();
             }
 
-            //trails.startRainbowRainLoop();
+            trails.startMilkRain();
             wingsGui.close(player);
 
-            player.sendMessage(format(pluginPrefix + "&3Rainbow' Trail Selected!"));
+            player.sendMessage(format(pluginPrefix + "'Milk Rain' Trail Selected!"));
 
             event.setCancelled(true);
-        });*/
+        });
+
+        GuiItem antiHalo = ItemBuilder.from(Material.LAVA_BUCKET).setName(format("&4Anti-Halo")).asGuiItem(event -> {
+            if(particles.hasID()) {
+                particles.stopTrail();
+                particles.removeID();
+            }
+
+            trails.startAntiHalo();
+            wingsGui.close(player);
+
+            player.sendMessage(format(pluginPrefix + "&4Anti-Halo' Trail Selected!"));
+
+            event.setCancelled(true);
+        });
+
+        GuiItem comingSoon = ItemBuilder.from(Material.BEDROCK).setName(format("&cComing Soon...")).asGuiItem(event -> {
+
+            wingsGui.close(player);
+
+            player.sendMessage(format(pluginPrefix + "These trails are coming soon..."));
+
+            event.setCancelled(true);
+        });
 
         // Wings GUI Items
 
         trailsGui.setItem(2, 2, clearTrails);
-        trailsGui.setItem(2, 3, trailOne);
-        trailsGui.setItem(2, 4, crossLoopTrail);
-        trailsGui.setItem(2, 5, hotHeadTrail);
-        trailsGui.setItem(2, 6, haloTrail);
-        //trailsGui.setItem(2, 7, rainbowRain);
+        //trailsGui.setItem(2, 3, trailOne);
+        trailsGui.setItem(2, 3, crossLoopTrail);
+        trailsGui.setItem(2, 4, milkRain);
+        trailsGui.setItem(2, 5, haloTrail);
+        trailsGui.setItem(2, 6, antiHalo);
+        trailsGui.setItem(2, 7, hotHeadTrail);
+        trailsGui.setItem(2, 8, comingSoon);
+        trailsGui.setItem(3, 2, comingSoon);
+        trailsGui.setItem(3, 3, comingSoon);
+        trailsGui.setItem(3, 4, comingSoon);
+        trailsGui.setItem(3, 5, comingSoon);
+        trailsGui.setItem(3, 6, comingSoon);
+        trailsGui.setItem(3, 7, comingSoon);
+        trailsGui.setItem(3, 8, comingSoon);
 
         //wingsGui.setItem(2, 2, wingsOne);
 

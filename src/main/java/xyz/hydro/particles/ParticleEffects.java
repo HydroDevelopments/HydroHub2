@@ -75,7 +75,43 @@ public class ParticleEffects {
             Location loc;
             ParticleMainHandler particle = new ParticleMainHandler(player.getUniqueId());
 
-            private float radius = 0.4f;
+            private float radius = 0.35f;
+            private float angle = 0.6f;
+
+            @Override
+            public void run() {
+                if(!particle.hasID()) {
+                    particle.setID(taskID);
+                }
+
+                loc = player.getLocation();
+                double x = (radius * Math.sin(angle));
+                double z = (radius * Math.cos(angle));
+                angle += 1.4f;
+
+                player.spawnParticle(Particle.END_ROD,
+                        loc.getX() + x,
+                        loc.getY() + 2.3,
+                        loc.getZ() + z,
+                        0);
+
+                player.spawnParticle(Particle.END_ROD,
+                        loc.getX() - x,
+                        loc.getY() + 2.3,
+                        loc.getZ() - z,
+                        0);
+
+            }
+        }, 0, 2);
+    }
+
+    public void startMilkRain() {
+        taskID = Bukkit.getScheduler().scheduleAsyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
+
+            Location loc;
+            ParticleMainHandler particle = new ParticleMainHandler(player.getUniqueId());
+
+            private float radius = 1.2f;
             private float angle = 0.8f;
 
             @Override
@@ -89,20 +125,59 @@ public class ParticleEffects {
                 double z = (radius * Math.cos(angle));
                 angle += 1f;
 
-                player.spawnParticle(Particle.DRAGON_BREATH,
+                player.spawnParticle(Particle.FIREWORKS_SPARK ,
                         loc.getX() + x,
                         loc.getY() + 2.3,
                         loc.getZ() + z,
                         0);
 
-                player.spawnParticle(Particle.DRAGON_BREATH,
+                player.spawnParticle(Particle.FIREWORKS_SPARK,
                         loc.getX() - x,
                         loc.getY() + 2.3,
                         loc.getZ() - z,
                         0);
 
             }
-        }, 0, 5);
+        }, 0, 2);
     }
+
+    public void startAntiHalo() {
+        taskID = Bukkit.getScheduler().scheduleAsyncRepeatingTask(Main.getPlugin((Main.class)), new Runnable() {
+
+            Location loc;
+            ParticleMainHandler particle = new ParticleMainHandler(player.getUniqueId());
+
+            private float radius = 0.4f;
+            private float angle = 0.8f;
+
+            @Override
+            public void run() {
+
+                if(!particle.hasID()) {
+                    particle.setID(taskID);
+                }
+
+                loc = player.getLocation();
+                double x = (radius * Math.sin(angle));
+                double z = (radius * Math.cos(angle));
+                angle += 0.5f;
+
+                player.spawnParticle(Particle.FLAME ,
+                        loc.getX() + x,
+                        loc.getY() + 2.3,
+                        loc.getZ() + z,
+                        0);
+
+                player.spawnParticle(Particle.FLAME,
+                        loc.getX() - x,
+                        loc.getY() + 2.3,
+                        loc.getZ() - z,
+                        0);
+
+            }
+        }, 0, 1);
+
+    }
+
 
 }
