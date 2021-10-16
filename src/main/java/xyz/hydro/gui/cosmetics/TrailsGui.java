@@ -35,16 +35,16 @@ public class TrailsGui implements CommandExecutor {
             event.setCancelled(true);
         });
 
-        Gui wingsGui = new Gui(3, "Wings Menu");
-        wingsGui.setDefaultClickAction(event -> {
-            event.setCancelled(true);
-        });
+        //Gui wingsGui = new Gui(3, "Wings Menu");
+        //wingsGui.setDefaultClickAction(event -> {
+        //    event.setCancelled(true);
+        //});
 
         // Wings GUI Items
-        GuiItem wingsOne = ItemBuilder.from(Material.BLACK_WOOL).setName("Black and White").asGuiItem(event -> {
+        //GuiItem wingsOne = ItemBuilder.from(Material.BLACK_WOOL).setName("Black and White").asGuiItem(event -> {
 
-            event.setCancelled(true);
-        });
+//            event.setCancelled(true);
+//        });
 
         // Trail GUI Items
 
@@ -52,9 +52,11 @@ public class TrailsGui implements CommandExecutor {
             if(particles.hasID()) {
                 particles.stopTrail();
                 particles.removeID();
-            }
 
-            player.sendMessage(format(pluginPrefix + "Your Trails Have Been Stopped."));
+                player.sendMessage(format(pluginPrefix + "Your Trails Have Been Stopped."));
+            } else {
+                player.sendMessage(format(pluginPrefix + "You do not have any trails active."));
+            }
 
             event.setCancelled(true);
         });
@@ -68,78 +70,108 @@ public class TrailsGui implements CommandExecutor {
         });
 
         GuiItem crossLoopTrail = ItemBuilder.from(Material.ICE).setName(ChatColor.WHITE + "CrossLoop").asGuiItem(event -> {
-            if(particles.hasID()) {
-                particles.stopTrail();
-                particles.removeID();
+
+            if(player.hasPermission("hhub.cosmetics.particles.crossLoop")) {
+
+                if (particles.hasID()) {
+                    particles.stopTrail();
+                    particles.removeID();
+                }
+
+                trails.startCrossLoop();
+                trailsGui.close(player);
+
+                player.sendMessage(format(pluginPrefix + "'CrossLoop' Trail Selected!"));
+            } else {
+                player.sendMessage(format(pluginPrefix + "You do not have permission to use this trail."));
             }
-
-            trails.startCrossLoop();
-            wingsGui.close(player);
-
-            player.sendMessage(format(pluginPrefix + "'CrossLoop' Trail Selected!"));
 
             event.setCancelled(true);
         });
 
         GuiItem hotHeadTrail = ItemBuilder.from(Material.FLINT_AND_STEEL).setName(ChatColor.RED + "Hot-Head").asGuiItem(event -> {
-            if(particles.hasID()) {
-                particles.stopTrail();
-                particles.removeID();
+
+            if(player.hasPermission("hhub.cosmetics.particles.hotHead")) {
+
+                if (particles.hasID()) {
+                    particles.stopTrail();
+                    particles.removeID();
+                }
+
+                trails.startHotHeadLoop();
+                trailsGui.close(player);
+
+                player.sendMessage(format(pluginPrefix + "'Hot-Head' Trail Selected!"));
+            } else {
+                player.sendMessage(format(pluginPrefix + "You do not have permission to use this trail."));
             }
-
-            trails.startHotHeadLoop();
-            wingsGui.close(player);
-
-            player.sendMessage(format(pluginPrefix + "'Hot-Head' Trail Selected!"));
 
             event.setCancelled(true);
         });
 
         GuiItem haloTrail = ItemBuilder.from(Material.ARROW).setName(ChatColor.YELLOW + "Halo").asGuiItem(event -> {
-            if(particles.hasID()) {
-                particles.stopTrail();
-                particles.removeID();
+
+            if(player.hasPermission("hhub.cosmetics.particles.halo")) {
+
+                if (particles.hasID()) {
+                    particles.stopTrail();
+                    particles.removeID();
+                }
+
+                trails.startHaloLoop();
+                trailsGui.close(player);
+
+                player.sendMessage(format(pluginPrefix + "'Halo' Trail Selected!"));
+            } else {
+                player.sendMessage(format(pluginPrefix + "You do not have permission to use this trail."));
             }
-
-            trails.startHaloLoop();
-            wingsGui.close(player);
-
-            player.sendMessage(format(pluginPrefix + "'Halo' Trail Selected!"));
 
             event.setCancelled(true);
         });
 
         GuiItem milkRain = ItemBuilder.from(Material.MILK_BUCKET).setName(ChatColor.WHITE + "Milk Rain").asGuiItem(event -> {
-            if(particles.hasID()) {
-                particles.stopTrail();
-                particles.removeID();
+
+            if(player.hasPermission("hhub.cosmetics.particles.milkRain")) {
+
+                if (particles.hasID()) {
+                    particles.stopTrail();
+                    particles.removeID();
+                }
+
+                trails.startMilkRain();
+                trailsGui.close(player);
+
+                player.sendMessage(format(pluginPrefix + "'Milk Rain' Trail Selected!"));
+            } else {
+                player.sendMessage(format(pluginPrefix + "You do not have permission to use this trail."));
             }
-
-            trails.startMilkRain();
-            wingsGui.close(player);
-
-            player.sendMessage(format(pluginPrefix + "'Milk Rain' Trail Selected!"));
 
             event.setCancelled(true);
         });
 
         GuiItem antiHalo = ItemBuilder.from(Material.LAVA_BUCKET).setName(format("&4Anti-Halo")).asGuiItem(event -> {
-            if(particles.hasID()) {
-                particles.stopTrail();
-                particles.removeID();
+
+            if(player.hasPermission("hhub.cosmetics.particles.antiHalo")) {
+
+                if (particles.hasID()) {
+                    particles.stopTrail();
+                    particles.removeID();
+                }
+
+                trails.startAntiHalo();
+                trailsGui.close(player);
+
+                player.sendMessage(format(pluginPrefix + "&4Anti-Halo' Trail Selected!"));
+            } else {
+                player.sendMessage(format(pluginPrefix + "You do not have permission to use this trail."));
             }
-
-            trails.startAntiHalo();
-            wingsGui.close(player);
-
-            player.sendMessage(format(pluginPrefix + "&4Anti-Halo' Trail Selected!"));
 
             event.setCancelled(true);
         });
 
         GuiItem comingSoon = ItemBuilder.from(Material.BEDROCK).setName(format("&cComing Soon...")).asGuiItem(event -> {
 
-            wingsGui.close(player);
+            trailsGui.close(player);
 
             player.sendMessage(format(pluginPrefix + "These trails are coming soon..."));
 

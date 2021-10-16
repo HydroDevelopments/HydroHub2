@@ -1,7 +1,5 @@
 package xyz.hydro;
 
-import me.clip.placeholderapi.PlaceholderAPI;
-import net.minecraft.server.v1_16_R3.Particle;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -15,7 +13,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scoreboard.Score;
 import xyz.hydro.commands.*;
 import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
@@ -24,10 +21,10 @@ import xyz.hydro.features.Scoreboard;
 import xyz.hydro.features.TabList;
 import xyz.hydro.features.WelcomeScreen;
 import xyz.hydro.features.chat.PlayerJoinMessage;
+import xyz.hydro.features.hubItems.ItemsOnJoin;
 import xyz.hydro.gui.cosmetics.CosmeticsGui;
 import xyz.hydro.gui.cosmetics.TrailsGui;
 import xyz.hydro.gui.serverselector.ServerSelectorGUI;
-import xyz.hydro.particles.ParticleEffects;
 import xyz.hydro.particles.events.OnQuit;
 
 import java.io.File;
@@ -77,6 +74,10 @@ public final class Main extends JavaPlugin implements Listener {
         // Member Permissions
         this.permission = new Permission("hhub.member.boostPads.use");
         this.permission = new Permission("hhub.member.command.spawnCommand");
+        this.permission = new Permission("hhub.member.command.helpCommand");
+        this.permission = new Permission("hhub.members.command.cosmeticsCommand");
+        this.permission = new Permission("hhub.members.command.trailsCommand");
+        this.permission = new Permission("hhub.members.command.serverSelectorCommand");
 
         // Chat Permission
         this.permission = new Permission("hhub.joinMessages.defaultMessagePermission");
@@ -89,6 +90,13 @@ public final class Main extends JavaPlugin implements Listener {
 
         this.permission = new Permission("hhub.joinMessages.adminJoinMessage");
         this.permission = new Permission("hhub.joinMessages.opJoinMessage");
+
+        // Cosmetic Permisisons
+        this.permission = new Permission("hhub.cosmetics.particles.crossLoop");
+        this.permission = new Permission("hhub.cosmetics.particles.hotHead");
+        this.permission = new Permission("hhub.cosmetics.particles.halo");
+        this.permission = new Permission("hhub.cosmetics.particles.milkRain");
+        this.permission = new Permission("hhub.cosmetics.particles.antiHalo");
 
     }
 
@@ -166,6 +174,7 @@ public final class Main extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new OnQuit(), this);
         pluginManager.registerEvents(new Scoreboard(this), this);
         pluginManager.registerEvents(new WelcomeScreen(this), this);
+        pluginManager.registerEvents(new ItemsOnJoin(this), this);
         pluginManager.registerEvents(this, this);
 
     }
