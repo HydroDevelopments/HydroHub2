@@ -56,8 +56,6 @@ public final class Main extends JavaPlugin implements Listener {
 
     public Main() {
 
-        pluginPrefix = format("&c[HydroHub] &r");
-
         pluginVersion = 1.0;
 
         pluginContributors = "jiggey, Rismose";
@@ -98,6 +96,9 @@ public final class Main extends JavaPlugin implements Listener {
         this.permission = new Permission("hhub.cosmetics.particles.milkRain");
         this.permission = new Permission("hhub.cosmetics.particles.antiHalo");
 
+        // Items Permissions
+        this.permission = new Permission("hhub.items.hubItemsClick");
+
     }
 
     @Override
@@ -115,6 +116,8 @@ public final class Main extends JavaPlugin implements Listener {
         this.saveMessagesConfig();
         getMessagesConfig().options().copyDefaults();
         saveMessagesConfig();
+
+        pluginPrefix = this.getMessagesConfig().getString("pluginPrefix");
 
         this.createLocationsConfig();
         this.reloadLocationsConfig();
