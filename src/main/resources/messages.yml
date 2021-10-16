@@ -39,15 +39,33 @@ scoreboardWeb: '&e&owww.example.com'
 #########################################################################################
 tabListHeader:
   lines:
-  - "&6Welcome To HydroMC"
-  - "&bWelcome To HydroMC"
-  - "&cWelcome To HydroMC"
+  - '< >'
+  - '< H >'
+  - '< Hy >'
+  - '< Hyd >'
+  - '< Hydr >'
+  - '< Hydro >'
+  - '< HydroM >'
+  - '< HydroMC >'
+  - '< &6&lHydroMC &r>'
+  - '< &6&lHydroMC &r>'
+  - '< HydroMC >'
+  - '< HydroMC >'
+  - '< &6&lHydroMC &r>'
+  - '> &6&lHydroMC &r>'
+  - '< HydroMC >'
+  - '< HydroMC >'
+  - '> HydroMC <'
+  - '> ydroM <'
+  - '> dro <'
+  - '> r <'
+  - '> <'
+  - '> <'
+  - '> <'
 
 tabListFooter:
   lines:
-  - "&6%player_name%, &7Balance: %player_balance%"
-  - "&b%player_name%, &2Balance: %player_balance%"
-  - "&c%player_name%, &dBalance: %player_balance%"
+  - "Welcome To HydroMC!"
 
 #########################################################################################
 helpMenu:

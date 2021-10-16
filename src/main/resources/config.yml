@@ -47,5 +47,7 @@ boostPadHeightMultiplier: 1.0
 # Scoreboard - To change messages, go to messages.yml !
 scoreboardEnabled: true
 
-# TABList - Enable An Animated or Static TABList.
+# TABList - Enable An Animated or Static TABList. You can edit the values in messages.yml
 tabListEnabled: true
+# TabList TIMER. This is the delay between switches on the TAB Animation.
+tabListTimer: 4

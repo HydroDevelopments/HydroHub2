@@ -69,7 +69,7 @@ public class TabList implements Listener {
                     }
 
                 }
-            }, 10, 40);
+            }, 10, plugin.getConfig().getLong("tabListTimer"));
         }
     }
 
