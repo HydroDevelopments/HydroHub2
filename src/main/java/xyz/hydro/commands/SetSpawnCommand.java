@@ -41,8 +41,9 @@ public class SetSpawnCommand implements CommandExecutor, Listener {
 
                 player.sendMessage(format(pluginPrefix + "Spawn Set Successfully!"));
 
-            } else {
-                player.sendMessage(format(noPermission));
+            }else {
+                sender.sendMessage(format(noPermission));
+                return true;
             }
 
         }

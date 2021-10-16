@@ -11,6 +11,7 @@ import xyz.hydro.Main;
 
 import java.util.Objects;
 
+import static xyz.hydro.Main.noPermission;
 import static xyz.hydro.Main.pluginPrefix;
 
 public class SpawnCommand implements CommandExecutor {
@@ -43,6 +44,9 @@ public class SpawnCommand implements CommandExecutor {
                     p.sendMessage(format(pluginPrefix + "You have teleported to spawn!"));
                     teleportVoid(p);
                 }
+            }else {
+                sender.sendMessage(format(noPermission));
+                return true;
             }
         }
 

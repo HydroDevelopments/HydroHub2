@@ -27,7 +27,6 @@ public class ItemsOnJoin implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         List<String> ignoredWorld = plugin.getConfig().getStringList("hubItemWorlds.ignored");
-        plugin.getLogger().info("Something: " + ignoredWorld);
         items(e.getPlayer());
     }
 
@@ -40,23 +39,23 @@ public class ItemsOnJoin implements Listener {
             ItemStack book = new ItemStack(Material.NETHER_STAR);
 
             ItemMeta compass_meta = compass.getItemMeta();
-            compass_meta.setDisplayName(format("&3Server Selector"));
+            compass_meta.setDisplayName(ChatColor.BLUE + "Server Selector");
             ArrayList<String> compass_lore = new ArrayList();
-            compass_lore.add(format("&dChoose A Server To Join!"));
+            compass_lore.add("Choose A Server To Join!");
             compass_meta.setLore(compass_lore);
             compass.setItemMeta(compass_meta);
 
             ItemMeta blaze_meta = blaze.getItemMeta();
-            compass_meta.setDisplayName(format("&6Trails"));
+            blaze_meta.setDisplayName(ChatColor.GOLD + "Trails");
             ArrayList<String> blaze_lore = new ArrayList();
-            blaze_lore.add(format("Choose a nice trail to follow you around!"));
+            blaze_lore.add("Choose a nice trail to follow you around!");
             blaze_meta.setLore(blaze_lore);
             blaze.setItemMeta(blaze_meta);
 
             ItemMeta book_meta = book.getItemMeta();
-            book_meta.setDisplayName(format("&2Hub Selector"));
+            book_meta.setDisplayName(ChatColor.GREEN + "Hub Selector");
             ArrayList<String> book_lore = new ArrayList();
-            book_lore.add(format("Don't like this hub? Choose another one!"));
+            book_lore.add("Don't like this hub? Choose another one!");
             book_meta.setLore(book_lore);
             book.setItemMeta(book_meta);
 

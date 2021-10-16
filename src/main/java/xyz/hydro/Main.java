@@ -16,6 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import xyz.hydro.commands.*;
 import xyz.hydro.events.OnJoinEvents;
 import xyz.hydro.events.OnRespawnEvent;
+import xyz.hydro.events.clickEvents.HubItemsClickEvents;
 import xyz.hydro.features.BoostPads;
 import xyz.hydro.features.Scoreboard;
 import xyz.hydro.features.TabList;
@@ -98,6 +99,7 @@ public final class Main extends JavaPlugin implements Listener {
 
         // Items Permissions
         this.permission = new Permission("hhub.items.hubItemsClick");
+        this.permission = new Permission("hhub.admin.items.bypass");
 
     }
 
@@ -178,6 +180,7 @@ public final class Main extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new Scoreboard(this), this);
         pluginManager.registerEvents(new WelcomeScreen(this), this);
         pluginManager.registerEvents(new ItemsOnJoin(this), this);
+        pluginManager.registerEvents(new HubItemsClickEvents(this), this);
         pluginManager.registerEvents(this, this);
 
     }

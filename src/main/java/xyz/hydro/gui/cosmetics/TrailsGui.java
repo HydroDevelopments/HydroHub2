@@ -14,6 +14,7 @@ import xyz.hydro.Main;
 import xyz.hydro.particles.ParticleEffects;
 import xyz.hydro.particles.ParticleMainHandler;
 
+import static xyz.hydro.Main.noPermission;
 import static xyz.hydro.Main.pluginPrefix;
 
 public class TrailsGui implements CommandExecutor {
@@ -204,6 +205,9 @@ public class TrailsGui implements CommandExecutor {
 
                 trailsGui.open(player);
 
+            }else {
+                sender.sendMessage(format(noPermission));
+                return true;
             }
         }
 

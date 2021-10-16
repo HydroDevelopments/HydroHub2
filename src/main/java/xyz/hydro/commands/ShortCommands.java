@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import xyz.hydro.Main;
 
+import static xyz.hydro.Main.noPermission;
 import static xyz.hydro.Main.pluginPrefix;
 
 public class ShortCommands implements CommandExecutor {
@@ -71,6 +72,9 @@ public class ShortCommands implements CommandExecutor {
                         return true;
                     }
                 }
+            }else {
+                sender.sendMessage(format(noPermission));
+                return true;
             }
         }
 

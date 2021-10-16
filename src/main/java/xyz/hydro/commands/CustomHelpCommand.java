@@ -7,6 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import xyz.hydro.Main;
 
+import static xyz.hydro.Main.noPermission;
+
 public class CustomHelpCommand implements CommandExecutor {
 
     private Main plugin;
@@ -27,6 +29,9 @@ public class CustomHelpCommand implements CommandExecutor {
                     player.sendMessage(format(msg));
                 }
 
+            }else {
+                player.sendMessage(format(noPermission));
+                return true;
             }
 
         }

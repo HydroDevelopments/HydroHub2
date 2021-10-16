@@ -6,6 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import xyz.hydro.Main;
 
+import static xyz.hydro.Main.noPermission;
 import static xyz.hydro.Main.pluginPrefix;
 
 public class ReloadCommand implements CommandExecutor {
@@ -49,11 +50,9 @@ public class ReloadCommand implements CommandExecutor {
                 sender.sendMessage(format(pluginPrefix + "&aAll Config Files Have Been Reloaded. Some changes may require a restart or a re-log."));
                 return true;
 
-            } else {
-
-                sender.sendMessage(format(pluginPrefix + "&cYou Have No Permissions Todo This."));
+            }else {
+                sender.sendMessage(format(noPermission));
                 return true;
-
             }
         }
         return true;

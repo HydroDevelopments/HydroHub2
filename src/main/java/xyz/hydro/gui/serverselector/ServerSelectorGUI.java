@@ -10,6 +10,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import xyz.hydro.Main;
 
+import static xyz.hydro.Main.noPermission;
+
 public class ServerSelectorGUI implements CommandExecutor, Listener {
     private final Main plugin;
     public ServerSelectorGUI(Main plugin) {
@@ -43,10 +45,18 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
                 server.open(player);
 
+            }else {
+                player.sendMessage(format(noPermission));
+                return true;
             }
         }
 
         return true;
+    }
+
+    public String format(String msg) {
+        ChatColor.translateAlternateColorCodes('&', msg);
+        return msg;
     }
 
 }

@@ -17,17 +17,28 @@ announcePlayerJoin: true
 # This disables the default Minecraft join / leave messages.
 disableDefaultJoinMessages: true
 
-
 # The block which triggers the launch event. This can be GOLD_BLOCK or EMERALD_BLOCK. No pressure plate is needed.
 boostPadBlock: 'EMERALD_BLOCK'
 
-# Define Which Worlds Boost sPads Are Enabled On
+# Define Which Worlds BoostPads Are Enabled On.
+# You can list as many as you want.
 boostPadWorlds:
   allowed:
     - hub
     - hub2
     - hub3
     - hub4
+
+
+# This chooses which worlds the HubItems are functional and given in.
+# List the worlds you DON'T want HubItems in.
+# This can be as long as you want.
+hubItemWorlds:
+  ignored:
+    - world1
+    - world2
+    - world3
+    - world4
 
 # Control how far the player is launched upon walking over a boost pad.
 boostPadLaunchMultiplier: 2.0
