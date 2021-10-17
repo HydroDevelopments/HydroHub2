@@ -31,9 +31,6 @@ public class HydroHubCommand implements CommandExecutor {
                 player.sendMessage(format(pluginPrefix + "&aVersion: " + pluginVersion));
                 player.sendMessage(format(pluginPrefix + "&6Made by " + pluginContributors));
 
-                player.sendMessage(plugin.getServerConfig().getString("serverSelector.items.1.material"));
-                player.setItemInHand(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.1.material"))));
-
             } else {
                 player.sendMessage(format(noPermission));
                 return true;
