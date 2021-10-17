@@ -1,2 +1,138 @@
 # This is the configuration file which controls the Server Selector and the Hub Selector!
 # For more information, visit the wiki docs (links in config.yml)
+
+# This is how often the server selector pings the servers.
+# This is in milliseconds and the lowest value is 1000ms (1 second).
+serverPingTimer: 1000
+
+# The BungeeCord proxy IP
+bungeeCordProxy: 127.0.0.1:25565
+
+serverSelector:
+  # You can choose 'NORMAL' (Not Stained) | 'BLACK' | 'BLUE' and 'RED'
+  primaryGlassColor: 'RED'
+  # You can choose 'NORMAL' (Not Stained) | 'BLACK' | 'BLUE' and 'RED'
+  secondaryGlassColor: 'BLACK'
+  items:
+    1:
+      material: "MATERIAL.AIR"
+      row: 2
+      slot: 3
+      name: " "
+      lore:
+        - ' '
+      teleportToServer: 127.0.0.1:25567
+    2:
+      material: "MATERIAL.RED_BED"
+      row: 2
+      slot: 4
+      name: "&cBed&fWars"
+      lore:
+        - "Be The Last Bed Standing!"
+        - "&6&lUPDATED!"
+      teleportToServer: 127.0.0.1:25567
+    3:
+      material: "MATERIAL.AIR"
+      row: 2
+      slot: 5
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    4:
+      row: 2
+      slot: 6
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    5:
+      row: 2
+      slot: 7
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    6:
+      row: 3
+      slot: 3
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    7:
+      row: 3
+      slot: 4
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    8:
+      row: 3
+      slot: 5
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    9:
+      row: 3
+      slot: 6
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    10:
+      row: 3
+      slot: 7
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    11:
+      row: 4
+      slot: 3
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    12:
+      row: 4
+      slot: 4
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    13:
+      row: 4
+      slot: 5
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    14:
+      row: 4
+      slot: 6
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567
+    15:
+      row: 4
+      slot: 7
+      name: "Test Item"
+      lore:
+        - "Test1"
+        - "test2"
+      teleportToServer: 127.0.0.1:25567

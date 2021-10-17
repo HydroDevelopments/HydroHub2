@@ -44,6 +44,10 @@ public class ReloadCommand implements CommandExecutor {
                     plugin.saveLocationConfig();
                     plugin.getLogger().info("Reloaded locations.yml");
 
+                    plugin.reloadServerConfig();
+                    plugin.saveServerConfig();
+                    plugin.getLogger().info("Reloaded serverSelector.yml");
+
 
                     plugin.getLogger().info("Successfully Reloaded All Config Files.");
 

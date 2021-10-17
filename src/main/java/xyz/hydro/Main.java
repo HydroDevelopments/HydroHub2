@@ -130,6 +130,12 @@ public final class Main extends JavaPlugin implements Listener {
         getLocationsConfig().options().copyDefaults();
         saveLocationConfig();
 
+        this.createServerConfig();
+        this.reloadServerConfig();
+        this.saveServerConfig();
+        getServerConfig().options().copyDefaults();
+        saveServerConfig();
+
         // TABList things
         this.tab = new TabList(this);
         List<String> tabListHeader = getMessagesConfig().getStringList("tabListHeader.lines");
@@ -149,6 +155,8 @@ public final class Main extends JavaPlugin implements Listener {
             e.printStackTrace();
             getLogger().warning("Something went wrong when initializing the TABList.");
         }
+
+        getServer().getMessenger().registerOutgoingPluginChannel(this, Objects.requireNonNull(getServerConfig().getString("bungeeCordProxy")));
 
 
         // Permissions
@@ -173,6 +181,7 @@ public final class Main extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("gms")).setExecutor((new ShortCommands(this)));
         Objects.requireNonNull(getCommand("gma")).setExecutor((new ShortCommands(this)));
         Objects.requireNonNull(getCommand("gm3")).setExecutor((new ShortCommands(this)));
+        Objects.requireNonNull(getCommand("gmsp")).setExecutor((new ShortCommands(this)));
 
         // Event Registering Goes Here!
         pluginManager.registerEvents(new OnRespawnEvent(this), this);
@@ -308,7 +317,7 @@ public final class Main extends JavaPlugin implements Listener {
     }
 
     public void saveServerConfig() {
-        if(this.locationsConfig == null) {
+        if(this.serverConfig == null) {
             return;
         }
 
