@@ -1,7 +1,6 @@
 package xyz.hydro.gui.serverselector;
 
 import dev.triumphteam.gui.guis.Gui;
-import dev.triumphteam.gui.guis.GuiItem;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,12 +30,6 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
             event.setCancelled(true);
         });
 
-        /*
-        * THIS IS BEING DONE LATE
-        * HONESTLY CAN'T BE ARSED RIGHT NOW
-        * IT'S GONNA BE A LONG PROCESS, RISMOSE NEEDS TO HELP ME
-        * COSMETIC MENU IS BEING CONSTRUCTED FIRST, ANYWAYS.
-         */
 
 
         if (cmd.getName().equalsIgnoreCase("serverselector")) {

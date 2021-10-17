@@ -1,7 +1,6 @@
 package xyz.hydro.features;
 
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,7 +17,7 @@ public class BoostPads implements Listener {
         this.plugin = plugin;
     }
 
-    private Material pressurePlate;
+    private Material triggerBlock;
 
     @EventHandler
     public void onWalkOver(PlayerMoveEvent event) {
@@ -34,15 +33,15 @@ public class BoostPads implements Listener {
             int count = 1;
 
             if(plugin.getConfig().getString("boostPadBlock").equals("GOLD_BLOCK")) {
-                pressurePlate = Material.GOLD_BLOCK;
+                triggerBlock = Material.GOLD_BLOCK;
             } else if(plugin.getConfig().getString("boostPadBlock").equals("EMERALD_BLOCK")) {
-                pressurePlate = Material.EMERALD_BLOCK;
+                triggerBlock = Material.EMERALD_BLOCK;
             } else {
                 plugin.getLogger().warning("boostPadBlock in config MUST be either GOLD_BLOCK or EMERALD_BLOCK!");
                 return;
             }
 
-            if (p.getLocation().subtract(0, 1, 0).getBlock().getType() == pressurePlate ) {
+            if (p.getLocation().subtract(0, 1, 0).getBlock().getType() == triggerBlock ) {
                 Vector direction = p.getLocation().getDirection().multiply(plugin.getConfig().getDouble("boostPadLaunchMultiplier"));
                 direction.setY(direction.getY() + plugin.getConfig().getDouble("boostPadHeightMultiplier"));
                 p.setVelocity(direction);
@@ -54,14 +53,19 @@ public class BoostPads implements Listener {
 
     @EventHandler
     public void onLand(EntityDamageEvent e) {
-        if(e.getEntity() instanceof Player) {
-            Player p = (Player) e.getEntity();
-            if(e.getCause().equals(EntityDamageEvent.DamageCause.FALL)) {
-                e.setCancelled(true);
-                p.setFallDistance(0.0f);
-                e.setDamage(0.0);
+        if(plugin.getConfig().getBoolean("disableEntityDamage")) {
+            if (e.getEntity() instanceof Player) {
+                Player p = (Player) e.getEntity();
+                if (e.getCause().equals(EntityDamageEvent.DamageCause.FALL)) {
+                    e.setCancelled(true);
+                    p.setFallDistance(0.0f);
+                    e.setDamage(0.0);
+                }
             }
+        } else {
+            return;
         }
+
     }
 
 }

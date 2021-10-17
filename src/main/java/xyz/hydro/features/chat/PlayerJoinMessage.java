@@ -9,8 +9,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import xyz.hydro.Main;
 
-import java.util.Objects;
-
 public class PlayerJoinMessage implements Listener {
 
     private Main plugin;

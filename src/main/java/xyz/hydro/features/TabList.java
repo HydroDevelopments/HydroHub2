@@ -1,6 +1,5 @@
 package xyz.hydro.features;
 
-import me.clip.placeholderapi.PlaceholderAPI;
 import net.minecraft.server.v1_16_R3.ChatComponentText;
 import net.minecraft.server.v1_16_R3.PacketPlayOutPlayerListHeaderFooter;
 import org.bukkit.Bukkit;

@@ -8,6 +8,8 @@ gotoSpawnOnDeath: true
 # Adds a delay to /spawn if you want to.
 spawnCommandDelay: true
 
+# Disable All Fall Damage / Entity Damage.
+disableEntityDamage: true
 
 # Chat Settings
 # This sends a message when a member joins a lobby.

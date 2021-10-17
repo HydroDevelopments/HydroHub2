@@ -51,6 +51,9 @@ public final class Main extends JavaPlugin implements Listener {
     private File locationsConfigFile;
     private FileConfiguration locationsConfig;
 
+    private File serverConfigFile;
+    private FileConfiguration serverConfig;
+
     public static String pluginContributors;
 
     public static String noPermission;
@@ -59,7 +62,7 @@ public final class Main extends JavaPlugin implements Listener {
 
         pluginVersion = 1.0;
 
-        pluginContributors = "jiggey, Rismose";
+        pluginContributors = "HydroDevelopments";
 
         noPermission = format("&cYou do not have permissions to use this command!");
 
@@ -293,6 +296,52 @@ public final class Main extends JavaPlugin implements Listener {
         locationsConfig = new YamlConfiguration();
         try {
             locationsConfig.load(locationsConfigFile);
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // serverselector.yml File Creation.
+    public FileConfiguration getServerConfig() {
+        return this.serverConfig;
+    }
+
+    public void saveServerConfig() {
+        if(this.locationsConfig == null) {
+            return;
+        }
+
+        try {
+            this.getServerConfig().save(this.serverConfigFile);
+        } catch(IOException e) {
+            // Being naughty and not logging :o
+        }
+    }
+
+    public void reloadServerConfig() {
+        if (this.serverConfig == null) {
+            createServerConfig();
+        }
+        this.serverConfig = YamlConfiguration.loadConfiguration(this.serverConfigFile);
+
+        InputStream defaultStream = this.getResource("serverSelector.yml");
+        if (defaultStream != null) {
+            YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defaultStream));
+            this.serverConfig.setDefaults(defaultConfig);
+        }
+    }
+
+    private void createServerConfig() {
+        serverConfigFile = new File(getDataFolder(), "serverSelector.yml");
+        if (!serverConfigFile.exists()) {
+            serverConfigFile.getParentFile().mkdirs();
+            saveResource("serverSelector.yml", true);
+        }
+
+        serverConfig = new YamlConfiguration();
+        try {
+            serverConfig.load(serverConfigFile);
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
