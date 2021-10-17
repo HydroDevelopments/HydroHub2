@@ -156,7 +156,7 @@ public final class Main extends JavaPlugin implements Listener {
             getLogger().warning("Something went wrong when initializing the TABList.");
         }
 
-        getServer().getMessenger().registerOutgoingPluginChannel(this, Objects.requireNonNull(getServerConfig().getString("bungeeCordProxy")));
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
 
         // Permissions

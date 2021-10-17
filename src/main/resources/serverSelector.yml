@@ -15,124 +15,127 @@ serverSelector:
   secondaryGlassColor: 'BLACK'
   items:
     1:
-      material: "MATERIAL.AIR"
+      material: 'AIR'
       row: 2
       slot: 3
-      name: " "
+      name: ' '
       lore:
-        - ' '
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
     2:
-      material: "MATERIAL.RED_BED"
+      material: 'RED_BED'
       row: 2
       slot: 4
-      name: "&cBed&fWars"
+      name: ' '
       lore:
-        - "Be The Last Bed Standing!"
-        - "&6&lUPDATED!"
-      teleportToServer: 127.0.0.1:25567
+        - 'Be The Last Bed Standing!'
+        - '&6&lUPDATED!'
+      teleportToServer: 'testing'
     3:
-      material: "MATERIAL.AIR"
+      material: 'AIR'
       row: 2
       slot: 5
-      name: "Test Item"
+      name: '&r'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
     4:
+      material: 'ENDER_EYE'
       row: 2
       slot: 6
-      name: "Test Item"
+      name: '&Fsky&bWars'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - 'Be The Last One Standing!'
+        - 'Join The Skywars Lobby'
+      teleportToServer: 'lobby'
     5:
+      material: 'AIR'
       row: 2
       slot: 7
-      name: "Test Item"
+      name: '&r'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
     6:
+      material: 'AIR'
       row: 3
       slot: 3
-      name: "Test Item"
+      name: '&r'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
     7:
+      material: 'AIR'
       row: 3
       slot: 4
-      name: "Test Item"
+      name: '&r'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
     8:
+      material: 'CRAFTING_TABLE'
       row: 3
       slot: 5
-      name: "Test Item"
+      name: 'Build Battle'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - 'Are you the greatest builder? Prove It!'
+        - 'Join a BuildBattle lobby now!'
+      teleportToServer: 'buildbattle'
     9:
+      material: 'AIR'
       row: 3
       slot: 6
-      name: "Test Item"
+      name: '&r'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
     10:
+      material: 'AIR'
       row: 3
       slot: 7
-      name: "Test Item"
+      name: '&r'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
     11:
+      material: 'AIR'
       row: 4
       slot: 3
-      name: "Test Item"
+      name: '&r'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
     12:
+      material: 'LEATHER_HELMET'
       row: 4
       slot: 4
-      name: "Test Item"
+      name: '&4Kit&bPVP'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - 'Grab a kit, and jump in!'
+        - 'Join KitPVP Now!'
+      teleportToServer: 'kitpvp'
     13:
+      material: 'AIR'
       row: 4
       slot: 5
-      name: "Test Item"
+      name: '&r'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
     14:
+      material: 'IRON_SWORD'
       row: 4
       slot: 6
-      name: "Test Item"
+      name: '&eSurvival Games'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - 'The Original Battle Royale!'
+        - 'Play Today on HydroMC!'
+      teleportToServer: 'survivalgames'
     15:
+      material: 'AIR'
       row: 4
       slot: 7
-      name: "Test Item"
+      name: '&r'
       lore:
-        - "Test1"
-        - "test2"
-      teleportToServer: 127.0.0.1:25567
+        - '&r'
+      teleportToServer:
