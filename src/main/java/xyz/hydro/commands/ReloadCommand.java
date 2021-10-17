@@ -52,7 +52,7 @@ public class ReloadCommand implements CommandExecutor {
 
                     plugin.getLogger().info("Successfully Reloaded All Config Files.");
 
-                sender.sendMessage(format(pluginPrefix + "&aAll Config Files Have Been Reloaded. Some changes may require a restart or a re-log."));
+                sender.sendMessage(format(pluginPrefix + plugin.getMessagesConfig().getString("configReloadMsg")));
                 return true;
 
             }else {

@@ -39,7 +39,7 @@ public class SetSpawnCommand implements CommandExecutor, Listener {
                 plugin.reloadLocationsConfig();
                 plugin.getLocationsConfig().options().copyDefaults();
 
-                player.sendMessage(format(pluginPrefix + "Spawn Set Successfully!"));
+                player.sendMessage(format(pluginPrefix + plugin.getMessagesConfig().getString("setSpawnMsg")));
 
             }else {
                 sender.sendMessage(format(noPermission));

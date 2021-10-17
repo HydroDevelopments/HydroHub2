@@ -4,6 +4,16 @@
 
 pluginPrefix: "&c[HydroHub] &r"
 
+configReloadMsg: "&aAll Config Files Have Been Reloaded. Some changes may require a restart or a re-log."
+
+setSpawnMsg: "Spawn Set Successfully!"
+
+invalidSpawnMsg: "You cannot be teleported as it has been configured incorrectly. Please notify an admin and try again."
+
+fiveSecSpawnMsg: "You will be teleported to spawn in 5 seconds. You are allowed to move."
+
+teleportedSpawnMsg: "You have teleported to spawn!"
+
 firstWelcomeTitle: "&6First Join!"
 firstWelcomeSub: "&5Welcome To HydroMC!"
 
@@ -74,3 +84,6 @@ helpMenu:
     - "&dFor help, head over to"
     - "&ehttps://example.com/faq"
     - "&b-----------&a+&b-----------"
+
+#########################################################################################
+connectingToServerMsg: "Sending you to the server..."

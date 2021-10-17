@@ -35,7 +35,7 @@ public class ShortCommands implements CommandExecutor {
                         return true;
                     } else {
                         player.setGameMode(GameMode.CREATIVE);
-                        player.sendMessage(format(pluginPrefix + "Your gamemode has been updated to Creative."));
+                        player.sendMessage(format(pluginPrefix + "Your gamemode has been updated to Creative!"));
                         return true;
                     }
                 }
@@ -45,7 +45,7 @@ public class ShortCommands implements CommandExecutor {
                         player.sendMessage(format(pluginPrefix + "You are already in Survival!"));
                         return true;
                     } else {
-                        player.sendMessage(format(pluginPrefix + "Your gamemode has been updated to Survival."));
+                        player.sendMessage(format(pluginPrefix + "Your gamemode has been updated to Survival!"));
                         player.setGameMode(GameMode.SURVIVAL);
                         return true;
                     }
@@ -56,7 +56,7 @@ public class ShortCommands implements CommandExecutor {
                         player.sendMessage(format(pluginPrefix + "You are already in Adventure!"));
                         return true;
                     } else {
-                        player.sendMessage(format(pluginPrefix + "Your gamemode has been updated to Adventure."));
+                        player.sendMessage(format(pluginPrefix + "Your gamemode has been updated to Adventure!"));
                         player.setGameMode(GameMode.ADVENTURE);
                         return true;
                     }
@@ -67,7 +67,7 @@ public class ShortCommands implements CommandExecutor {
                         player.sendMessage(format(pluginPrefix + "You are already in Spectator!"));
                         return true;
                     } else {
-                        player.sendMessage(format(pluginPrefix + "Your gamemode has been updated to Spectator."));
+                        player.sendMessage(format(pluginPrefix + "Your gamemode has been updated to Spectator!"));
                         player.setGameMode(GameMode.SPECTATOR);
                         return true;
                     }

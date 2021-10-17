@@ -3,6 +3,7 @@ package xyz.hydro.gui.serverselector;
 import dev.triumphteam.gui.builder.item.ItemBuilder;
 import dev.triumphteam.gui.guis.Gui;
 import dev.triumphteam.gui.guis.GuiItem;
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -17,7 +18,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 
 import static xyz.hydro.Main.noPermission;
@@ -42,19 +42,19 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
             event.setCancelled(true);
         });
 
-        GuiItem blackGlass = ItemBuilder.from(Material.BLACK_STAINED_GLASS_PANE).setName("").asGuiItem(event -> {
+        GuiItem blackGlass = ItemBuilder.from(Material.BLACK_STAINED_GLASS_PANE).setName(" ").asGuiItem(event -> {
             event.setCancelled(true);
         });
 
-        GuiItem redGlass = ItemBuilder.from(Material.RED_STAINED_GLASS_PANE).setName("").asGuiItem(event -> {
+        GuiItem redGlass = ItemBuilder.from(Material.RED_STAINED_GLASS_PANE).setName(" ").asGuiItem(event -> {
             event.setCancelled(true);
         });
 
-        GuiItem blueGlass = ItemBuilder.from(Material.BLUE_STAINED_GLASS_PANE).setName("").asGuiItem(event -> {
+        GuiItem blueGlass = ItemBuilder.from(Material.BLUE_STAINED_GLASS_PANE).setName(" ").asGuiItem(event -> {
             event.setCancelled(true);
         });
 
-        GuiItem plainGlass = ItemBuilder.from(Material.GLASS_PANE).setName("").asGuiItem(event -> {
+        GuiItem plainGlass = ItemBuilder.from(Material.GLASS_PANE).setName(" ").asGuiItem(event -> {
             event.setCancelled(true);
         });
 
@@ -62,7 +62,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot1
         List<String> slot1Lore = plugin.getServerConfig().getStringList("serverSelector.items.1.lore");
-        GuiItem slot1 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.1.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.1.name"))).setLore(slot1Lore).asGuiItem(event -> {
+        slot1Lore = PlaceholderAPI.setPlaceholders(player, slot1Lore);
+        String slot1Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.1.name")));
+        slot1Name = PlaceholderAPI.setPlaceholders(player, slot1Name);
+
+        GuiItem slot1 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.1.material").toUpperCase())))
+                .setName(slot1Name).setLore(slot1Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.1.teleportToServer"));
 
@@ -71,7 +76,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 2
         List<String> slot2Lore = plugin.getServerConfig().getStringList("serverSelector.items.2.lore");
-        GuiItem slot2 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.2.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.2.name"))).setLore(slot2Lore).asGuiItem(event -> {
+        slot2Lore = PlaceholderAPI.setPlaceholders(player, slot2Lore);
+        String slot2Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.2.name")));
+        slot2Name = PlaceholderAPI.setPlaceholders(player, slot2Name);
+
+        GuiItem slot2 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.2.material").toUpperCase())))
+                .setName(slot2Name).setLore(slot2Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.2.teleportToServer"));
 
@@ -80,7 +90,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 3
         List<String> slot3Lore = plugin.getServerConfig().getStringList("serverSelector.items.3.lore");
-        GuiItem slot3 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.3.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.3.name"))).setLore(slot3Lore).asGuiItem(event -> {
+        slot3Lore = PlaceholderAPI.setPlaceholders(player, slot3Lore);
+        String slot3Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.3.name")));
+        slot3Name = PlaceholderAPI.setPlaceholders(player, slot3Name);
+        
+        GuiItem slot3 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.3.material").toUpperCase())))
+                .setName(slot3Name).setLore(slot3Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.3.teleportToServer"));
 
@@ -89,7 +104,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
         
         // Slot 4
         List<String> slot4Lore = plugin.getServerConfig().getStringList("serverSelector.items.4.lore");
-        GuiItem slot4 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.4.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.4.name"))).setLore(slot4Lore).asGuiItem(event -> {
+        slot4Lore = PlaceholderAPI.setPlaceholders(player, slot4Lore);
+        String slot4Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.4.name")));
+        slot4Name = PlaceholderAPI.setPlaceholders(player, slot4Name);
+
+        GuiItem slot4 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.4.material").toUpperCase())))
+                .setName(slot4Name).setLore(slot4Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.4.teleportToServer"));
 
@@ -98,7 +118,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 5
         List<String> slot5Lore = plugin.getServerConfig().getStringList("serverSelector.items.5.lore");
-        GuiItem slot5 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.5.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.5.name"))).setLore(slot5Lore).asGuiItem(event -> {
+        slot5Lore = PlaceholderAPI.setPlaceholders(player, slot5Lore);
+        String slot5Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.5.name")));
+        slot5Name = PlaceholderAPI.setPlaceholders(player, slot5Name);
+
+        GuiItem slot5 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.5.material").toUpperCase())))
+                .setName(slot5Name).setLore(slot5Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.5.teleportToServer"));
 
@@ -107,7 +132,11 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 6
         List<String> slot6Lore = plugin.getServerConfig().getStringList("serverSelector.items.6.lore");
-        GuiItem slot6 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.6.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.6.name"))).setLore(slot6Lore).asGuiItem(event -> {
+        slot6Lore = PlaceholderAPI.setPlaceholders(player, slot6Lore);
+        String slot6Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.6.name")));
+        slot6Name = PlaceholderAPI.setPlaceholders(player, slot6Name);
+        GuiItem slot6 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.6.material").toUpperCase())))
+                .setName(slot6Name).setLore(slot6Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.6.teleportToServer"));
 
@@ -116,7 +145,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 7
         List<String> slot7Lore = plugin.getServerConfig().getStringList("serverSelector.items.7.lore");
-        GuiItem slot7 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.7.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.7.name"))).setLore(slot7Lore).asGuiItem(event -> {
+        slot7Lore = PlaceholderAPI.setPlaceholders(player, slot7Lore);
+        String slot7Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.7.name")));
+        slot7Name = PlaceholderAPI.setPlaceholders(player, slot7Name);
+
+        GuiItem slot7 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.7.material").toUpperCase())))
+                .setName(slot7Name).setLore(slot7Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.7.teleportToServer"));
 
@@ -125,7 +159,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 8
         List<String> slot8Lore = plugin.getServerConfig().getStringList("serverSelector.items.8.lore");
-        GuiItem slot8 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.8.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.8.name"))).setLore(slot8Lore).asGuiItem(event -> {
+        slot8Lore = PlaceholderAPI.setPlaceholders(player, slot8Lore);
+        String slot8Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.8.name")));
+        slot8Name = PlaceholderAPI.setPlaceholders(player, slot8Name);
+
+        GuiItem slot8 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.8.material").toUpperCase())))
+                .setName(slot8Name).setLore(slot8Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.8.teleportToServer"));
 
@@ -134,7 +173,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 9
         List<String> slot9Lore = plugin.getServerConfig().getStringList("serverSelector.items.9.lore");
-        GuiItem slot9 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.9.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.9.name"))).setLore(slot9Lore).asGuiItem(event -> {
+        slot9Lore = PlaceholderAPI.setPlaceholders(player, slot9Lore);
+        String slot9Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.9.name")));
+        slot9Name = PlaceholderAPI.setPlaceholders(player, slot9Name);
+
+        GuiItem slot9 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.9.material").toUpperCase())))
+                .setName(slot9Name).setLore(slot9Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.9.teleportToServer"));
 
@@ -143,7 +187,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 10
         List<String> slot10Lore = plugin.getServerConfig().getStringList("serverSelector.items.10.lore");
-        GuiItem slot10 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.10.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.10.name"))).setLore(slot10Lore).asGuiItem(event -> {
+        slot10Lore = PlaceholderAPI.setPlaceholders(player, slot10Lore);
+        String slot10Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.10.name")));
+        slot10Name = PlaceholderAPI.setPlaceholders(player, slot10Name);
+
+        GuiItem slot10 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.10.material").toUpperCase())))
+                .setName(slot10Name).setLore(slot10Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.10.teleportToServer"));
 
@@ -152,7 +201,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 11
         List<String> slot11Lore = plugin.getServerConfig().getStringList("serverSelector.items.11.lore");
-        GuiItem slot11 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.11.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.11.name"))).setLore(slot11Lore).asGuiItem(event -> {
+        slot11Lore = PlaceholderAPI.setPlaceholders(player, slot11Lore);
+        String slot11Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.11.name")));
+        slot11Name = PlaceholderAPI.setPlaceholders(player, slot11Name);
+
+        GuiItem slot11 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.11.material").toUpperCase())))
+                .setName(slot11Name).setLore(slot11Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.11.teleportToServer"));
 
@@ -161,7 +215,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 12
         List<String> slot12Lore = plugin.getServerConfig().getStringList("serverSelector.items.12.lore");
-        GuiItem slot12 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.12.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.12.name"))).setLore(slot12Lore).asGuiItem(event -> {
+        slot12Lore = PlaceholderAPI.setPlaceholders(player, slot12Lore);
+        String slot12Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.12.name")));
+        slot12Name = PlaceholderAPI.setPlaceholders(player, slot12Name);
+
+        GuiItem slot12 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.12.material").toUpperCase())))
+                .setName(slot12Name).setLore(slot12Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.12.teleportToServer"));
 
@@ -170,7 +229,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 13
         List<String> slot13Lore = plugin.getServerConfig().getStringList("serverSelector.items.13.lore");
-        GuiItem slot13 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.13.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.13.name"))).setLore(slot13Lore).asGuiItem(event -> {
+        slot13Lore = PlaceholderAPI.setPlaceholders(player, slot13Lore);
+        String slot13Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.13.name")));
+        slot13Name = PlaceholderAPI.setPlaceholders(player, slot13Name);
+
+        GuiItem slot13 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.13.material").toUpperCase())))
+                .setName(slot13Name).setLore(slot13Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.13.teleportToServer"));
 
@@ -179,7 +243,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 14
         List<String> slot14Lore = plugin.getServerConfig().getStringList("serverSelector.items.14.lore");
-        GuiItem slot14 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.14.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.14.name"))).setLore(slot14Lore).asGuiItem(event -> {
+        slot14Lore = PlaceholderAPI.setPlaceholders(player, slot14Lore);
+        String slot14Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.14.name")));
+        slot14Name = PlaceholderAPI.setPlaceholders(player, slot14Name);
+
+        GuiItem slot14 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.14.material").toUpperCase())))
+                .setName(slot14Name).setLore(slot14Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.14.teleportToServer"));
 
@@ -188,7 +257,12 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Slot 15
         List<String> slot15Lore = plugin.getServerConfig().getStringList("serverSelector.items.15.lore");
-        GuiItem slot15 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.15.material").toUpperCase()))).setName(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.15.name"))).setLore(slot15Lore).asGuiItem(event -> {
+        slot15Lore = PlaceholderAPI.setPlaceholders(player, slot15Lore);
+        String slot15Name = format(Objects.requireNonNull(plugin.getServerConfig().getString("serverSelector.items.15.name")));
+        slot15Name = PlaceholderAPI.setPlaceholders(player, slot15Name);
+
+        GuiItem slot15 = ItemBuilder.from(new ItemStack(Material.valueOf(plugin.getServerConfig().getString("serverSelector.items.15.material").toUpperCase())))
+                .setName(slot15Name).setLore(slot15Lore).asGuiItem(event -> {
 
             sendToServer(player, plugin.getServerConfig().getString("serverSelector.items.15.teleportToServer"));
 
@@ -421,7 +495,7 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
         }
         player.closeInventory();
         player.sendPluginMessage(plugin, "BungeeCord", byteArrayOutputStream.toByteArray());
-        player.sendMessage(format(pluginPrefix + "Sending you to the server..."));
+        player.sendMessage(format(pluginPrefix + plugin.getMessagesConfig().getString("connectingToServerMsg")));
     }
 
     private void sendErrorSpam(String reason) {

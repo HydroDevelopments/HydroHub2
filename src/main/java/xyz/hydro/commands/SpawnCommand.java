@@ -29,7 +29,7 @@ public class SpawnCommand implements CommandExecutor {
                 Player p = (Player) sender;
 
                 if (plugin.getLocationsConfig().get("worldSpawnX") == null || plugin.getServer().getWorld(Objects.requireNonNull(plugin.getLocationsConfig().getString("worldSpawnName"))) == null) {
-                    p.sendMessage(format(pluginPrefix + "You cannot be teleported as it has been configured incorrectly. Please notify an admin and try again."));
+                    p.sendMessage(format(pluginPrefix + plugin.getMessagesConfig().getString("invalidSpawnMsg")));
                     plugin.getLogger().warning(p.getName() + " tried to execute /spawn but you have not ran the command /setspawn . Please do this to make the command functional.");
                     return true;
                 }
@@ -38,10 +38,10 @@ public class SpawnCommand implements CommandExecutor {
                 double x = plugin.getLocationsConfig().getDouble("worldSpawnX");
 
                 if (plugin.getLocationsConfig().getBoolean("spawnCommandDelay")) {
-                    p.sendMessage(format(pluginPrefix + "You will be teleported to spawn in 5 seconds. You are allowed to move."));
+                    p.sendMessage(format(pluginPrefix + plugin.getMessagesConfig().getString("fiveSecSpawnMsg")));
                     fiveSecTimer(p);
                 } else {
-                    p.sendMessage(format(pluginPrefix + "You have teleported to spawn!"));
+                    p.sendMessage(format(pluginPrefix + plugin.getMessagesConfig().getString("teleportedSpawnMsg")));
                     teleportVoid(p);
                 }
             }else {
