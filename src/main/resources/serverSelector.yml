@@ -131,3 +131,70 @@ serverSelector:
       lore:
         - ' '
       teleportToServer:
+
+
+lobbySelector:
+  items:
+    1:
+      material: quartz_block
+      name: "Hub-1"
+      slot: 1
+      lore:
+        - "Hub 1"
+      teleportToServer: lobby-1
+    2:
+      material: quartz_block
+      name: "Hub-2"
+      slot: 2
+      lore:
+        - "Hub 2"
+      teleportToServer: lobby-2
+    3:
+      material: air
+      name: "Hub-3"
+      slot: 3
+      lore:
+        - "Hub 3"
+      teleportToServer: lobby-3
+    4:
+      material: air
+      name: "Hub-4"
+      slot: 4
+      lore:
+        - "Hub 4"
+      teleportToServer: lobby-4
+    5:
+      material: air
+      name: "Hub-5"
+      slot: 5
+      lore:
+        - "Hub 5"
+      teleportToServer: lobby-5
+    6:
+      material: air
+      name: "Hub-6"
+      slot: 6
+      lore:
+        - "Hub 6"
+      teleportToServer: lobby-6
+    7:
+      material: air
+      name: "Hub-7"
+      slot: 7
+      lore:
+        - "Hub 7"
+      teleportToServer: lobby-7
+    8:
+      material: air
+      name: "Hub-8"
+      slot: 8
+      lore:
+        - "Hub 8"
+      teleportToServer: lobby-8
+    9:
+      material: air
+      name: "Hub-9"
+      slot: 9
+      lore:
+        - "Hub 9"
+      teleportToServer: lobby-9

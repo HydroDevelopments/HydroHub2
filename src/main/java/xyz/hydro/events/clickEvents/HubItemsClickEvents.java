@@ -38,10 +38,10 @@ public class HubItemsClickEvents implements Listener {
 
         }
 
-        if (player.getInventory().getItemInMainHand().getType().equals(Material.NETHER_STAR) && player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Lobby Selector")
+        if (player.getInventory().getItemInMainHand().getType().equals(Material.NETHER_STAR) && player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Hub Selector")
                 && (action.equals(Action.RIGHT_CLICK_AIR) || action.equals(Action.RIGHT_CLICK_BLOCK))) {
 
-            player.performCommand("lobbies");
+            player.performCommand("lobbyselector");
 
             event.setCancelled(true);
 

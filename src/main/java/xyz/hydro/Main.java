@@ -25,6 +25,7 @@ import xyz.hydro.features.chat.PlayerJoinMessage;
 import xyz.hydro.features.hubItems.ItemsOnJoin;
 import xyz.hydro.gui.cosmetics.CosmeticsGui;
 import xyz.hydro.gui.cosmetics.TrailsGui;
+import xyz.hydro.gui.lobbySelector.LobbySelectorGUI;
 import xyz.hydro.gui.serverselector.ServerSelectorGUI;
 import xyz.hydro.particles.events.OnQuit;
 
@@ -80,6 +81,7 @@ public final class Main extends JavaPlugin implements Listener {
         this.permission = new Permission("hhub.members.command.cosmeticsCommand");
         this.permission = new Permission("hhub.members.command.trailsCommand");
         this.permission = new Permission("hhub.members.command.serverSelectorCommand");
+        this.permission = new Permission("hhub.members.command.lobbySelectorCommand");
 
         // Chat Permission
         this.permission = new Permission("hhub.joinMessages.defaultMessagePermission");
@@ -172,6 +174,7 @@ public final class Main extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("setspawn")).setExecutor((new SetSpawnCommand(this)));
         Objects.requireNonNull(getCommand("spawn")).setExecutor((new SpawnCommand(this)));
         Objects.requireNonNull(getCommand("serverselector")).setExecutor((new ServerSelectorGUI(this)));
+        Objects.requireNonNull(getCommand("lobbyselector")).setExecutor((new LobbySelectorGUI(this)));
         Objects.requireNonNull(getCommand("trails")).setExecutor((new TrailsGui(this)));
         Objects.requireNonNull(getCommand("cosmetics")).setExecutor((new CosmeticsGui(this)));
 

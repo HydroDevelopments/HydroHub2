@@ -35,8 +35,11 @@ commands:
     description: Opens the cosmetics GUI.
     permission: hhub.member.command.cosmeticsCommand
   serverselector:
-    description: Opends the server selector GUI.
+    description: Opens the server selector GUI.
     permission: hhub.member.command.serverSelectorCommand
+  lobbyselector:
+    description: Opens the lobby selector GUI.
+    permission: hhub.member.command.lobbySelectorCommand
   trails:
     description: Opens the trails cosmetic GUI
     permission: hhub.member.command.trailsCommand
