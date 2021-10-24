@@ -74,6 +74,7 @@ public final class Main extends JavaPlugin implements Listener {
         this.permission = new Permission("hhub.admin.command.setWorldSpawn");
         this.permission = new Permission("hhub.admin.commands.boostPadsCommand");
         this.permission = new Permission("hhub.admin.commands.smallCommands");
+        this.permission = new Permission("hhub.admin.commands.getCustomSkullCommand");
 
         // Member Permissions
         this.permission = new Permission("hhub.member.boostPads.use");
@@ -84,6 +85,7 @@ public final class Main extends JavaPlugin implements Listener {
         this.permission = new Permission("hhub.members.command.serverSelectorCommand");
         this.permission = new Permission("hhub.members.command.lobbySelectorCommand");
         this.permission = new Permission("hhub.members.command.hatsGuiCommand");
+        this.permission = new Permission("hhub.members.command.setHatCommand");
 
         // Chat Permission
         this.permission = new Permission("hhub.joinMessages.defaultMessagePermission");

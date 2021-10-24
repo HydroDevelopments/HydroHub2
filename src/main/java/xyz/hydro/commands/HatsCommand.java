@@ -7,10 +7,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
 import xyz.hydro.Main;
 
 import static xyz.hydro.Main.noPermission;
 import static xyz.hydro.Main.pluginPrefix;
+import static xyz.hydro.utils.CustomSkullGetter.getSkull;
 
 public class HatsCommand implements CommandExecutor, Listener {
 
@@ -23,19 +25,46 @@ public class HatsCommand implements CommandExecutor, Listener {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         Player player = (Player) sender;
 
+        ItemStack heldItem = new ItemStack(player.getInventory().getItemInMainHand());
+
         if (cmd.getName().equalsIgnoreCase("hat")) {
 
-            if (sender.hasPermission("hhub.members.command.hatsGuiCommand")) {
+            if (sender.hasPermission("hhub.members.command.setHatCommand")) {
 
-            if(args.length == 0) {
-                if(player.getInventory().getItemInMainHand().equals(Material.AIR)) {
+            if(args.length <= 0) {
+                if(player.getInventory().getItemInMainHand().getType() == Material.AIR) {
 
                     player.sendMessage(format(pluginPrefix + "You are not holding anything in your main hand!"));
                     return true;
 
                 } else {
+                    if(heldItem.getAmount() == 1) {
+                        player.getInventory().setHelmet(player.getInventory().getItemInMainHand());
+                        player.getInventory().setItemInMainHand(new ItemStack(Material.AIR, 1));
+                    } else if(heldItem.getAmount() > 1) {
+                        player.sendMessage(format(pluginPrefix + "You are holding a stack of " + heldItem.getAmount() + " items. You are only allowed to hold one!"));
+                        return true;
+                    }
+                    player.sendMessage(format(pluginPrefix + "You have selected your new hat!"));
+                    return true;
+                }
+            }
 
+            if(args.length == 2) {
+                if (sender.hasPermission("hhub.admin.commands.getCustomSkullCommand")) {
+                    if(args[0].equals("skull")) {
+                        player.getInventory().setHelmet(new ItemStack(getSkull(args[1])));
+                        player.sendMessage("You have set a custom skull as your hat!");
+                        return true;
+                    } else {
+                        player.sendMessage(format( pluginPrefix + "&cInvalid Syntax! Correct Usage:"));
+                        player.sendMessage(format( pluginPrefix + "&c/hat &oskull <base64Value>"));
+                        return true;
+                    }
 
+                } else {
+
+                    player.sendMessage(format(pluginPrefix + noPermission));
 
                 }
             }

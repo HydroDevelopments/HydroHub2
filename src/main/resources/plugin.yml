@@ -67,3 +67,11 @@ commands:
     description: Short Gamemode Commands
     usage: /<command>
     permission: hhub.admin.commands.smallCommands
+  hatsgui:
+    description: This brings up the Hats Cosmetics menu!
+    usage: /<command>
+    permission: hhub.members.command.hatsGuiCommand
+  hat:
+    description: Set a hat!
+    usage: /<command>
+    permission: hhub.members.command.setHatCommand
