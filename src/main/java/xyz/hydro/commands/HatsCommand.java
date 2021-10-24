@@ -54,18 +54,14 @@ public class HatsCommand implements CommandExecutor, Listener {
                 if (sender.hasPermission("hhub.admin.commands.getCustomSkullCommand")) {
                     if(args[0].equals("skull")) {
                         player.getInventory().setHelmet(new ItemStack(getSkull(args[1])));
-                        player.sendMessage("You have set a custom skull as your hat!");
-                        return true;
+                        player.sendMessage(format(pluginPrefix + "Here's your custom skull hat!"));
                     } else {
-                        player.sendMessage(format( pluginPrefix + "&cInvalid Syntax! Correct Usage:"));
-                        player.sendMessage(format( pluginPrefix + "&c/hat &oskull <base64Value>"));
-                        return true;
+                        player.sendMessage(format(pluginPrefix + "&cAn error has occurred. Make sure you are using the correct syntax:"));
+                        player.sendMessage(format(pluginPrefix + "&c/hat skull &o<base64Value>"));
                     }
-
                 } else {
-
                     player.sendMessage(format(pluginPrefix + noPermission));
-
+                    return true;
                 }
             }
 
