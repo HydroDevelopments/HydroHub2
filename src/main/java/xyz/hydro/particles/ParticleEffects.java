@@ -178,5 +178,44 @@ public class ParticleEffects {
 
     }
 
+    public void startForcefield() {
+        taskID = Bukkit.getScheduler().scheduleAsyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
+
+            Location loc;
+            ParticleMainHandler particle = new ParticleMainHandler(player.getUniqueId());
+
+            @Override
+            public void run() {
+
+                if(!particle.hasID()) {
+                    particle.setID(taskID);
+                }
+
+                loc = player.getLocation();
+                for (double i = 0; i <= Math.PI; i += Math.PI / 8) {
+
+                    double radius = Math.sin(i);
+                    double y = Math.cos(i);
+
+                    for (double a = 0; a < Math.PI * 2; a+= Math.PI / 10) {
+
+                        double x = Math.cos(a) * radius;
+                        double z = Math.sin(a) * radius;
+
+                        loc.add(x, y, z);
+
+                        player.spawnParticle(Particle.VILLAGER_HAPPY,
+                                loc.getX() + x,
+                                loc.getY() + y + 1f,
+                                loc.getZ() + z,
+                                3);
+
+                        loc.subtract(x, y, z);
+                    }
+                }
+
+            }
+        },2, 50);
+    }
 
 }

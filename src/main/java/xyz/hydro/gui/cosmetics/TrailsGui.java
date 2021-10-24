@@ -1,5 +1,7 @@
 package xyz.hydro.gui.cosmetics;
 
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
 import dev.triumphteam.gui.builder.item.ItemBuilder;
 import dev.triumphteam.gui.guis.Gui;
 import dev.triumphteam.gui.guis.GuiItem;
@@ -9,9 +11,15 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
 import xyz.hydro.Main;
 import xyz.hydro.particles.ParticleEffects;
 import xyz.hydro.particles.ParticleMainHandler;
+
+import java.lang.reflect.Field;
+import java.util.Base64;
+import java.util.UUID;
 
 import static xyz.hydro.Main.noPermission;
 import static xyz.hydro.Main.pluginPrefix;
@@ -34,6 +42,8 @@ public class TrailsGui implements CommandExecutor {
         trailsGui.setDefaultClickAction(event -> {
             event.setCancelled(true);
         });
+
+        trailsGui.getFiller().fill(ItemBuilder.from(Material.BLACK_STAINED_GLASS_PANE).setName(" ").asGuiItem());
 
         //Gui wingsGui = new Gui(3, "Wings Menu");
         //wingsGui.setDefaultClickAction(event -> {
@@ -63,8 +73,6 @@ public class TrailsGui implements CommandExecutor {
 
         GuiItem trailOne = ItemBuilder.from(Material.FEATHER).setName(ChatColor.WHITE + "Wings").asGuiItem(event -> {
             //wingsGui.open(player);
-
-
 
             event.setCancelled(true);
         });
@@ -169,6 +177,25 @@ public class TrailsGui implements CommandExecutor {
             event.setCancelled(true);
         });
 
+        GuiItem loveable = ItemBuilder.from(Material.SHIELD).setName(ChatColor.LIGHT_PURPLE + "Force-Field").asGuiItem(event -> {
+
+            if(player.hasPermission("hhub.cosmetics.particles.forcefield")) {
+
+                if (particles.hasID()) {
+                    particles.stopTrail();
+                    particles.removeID();
+                }
+
+                trails.startForcefield();
+                trailsGui.close(player);
+
+                player.sendMessage(format(pluginPrefix + "&dForce-Field' Trail Selected!"));
+            } else {
+                player.sendMessage(format(pluginPrefix + "You do not have permission to use this trail."));
+            }
+        });
+
+
         GuiItem comingSoon = ItemBuilder.from(Material.BEDROCK).setName(format("&cComing Soon...")).asGuiItem(event -> {
 
             trailsGui.close(player);
@@ -176,6 +203,18 @@ public class TrailsGui implements CommandExecutor {
             player.sendMessage(format(pluginPrefix + "These trails are coming soon..."));
 
             event.setCancelled(true);
+        });
+
+        GuiItem backArrow = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2ViZjkwNzQ5NGE5MzVlOTU1YmZjYWRhYjgxYmVhZmI5MGZiOWJlNDljNzAyNmJhOTdkNzk4ZDVmMWEyMyJ9fX0=")))
+                .setName(format("&3Server Selector")).setLore("Return To Server Selector").asGuiItem(event -> {
+                    player.performCommand("serverselector");
+                    event.setCancelled(true);
+        });
+
+        GuiItem frontArrow = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWE0ZjY4YzhmYjI3OWU1MGFiNzg2ZjlmYTU0Yzg4Y2E0ZWNmZTFlYjVmZDVmMGMzOGM1NGM5YjFjNzIwM2Q3YSJ9fX0=")))
+                .setName(format("&bHub Selector")).setLore("Go to the Hub Selector!").asGuiItem(event -> {
+                player.performCommand("lobbyselector");
+                event.setCancelled(true);
         });
 
         // Wings GUI Items
@@ -187,7 +226,8 @@ public class TrailsGui implements CommandExecutor {
         trailsGui.setItem(2, 5, haloTrail);
         trailsGui.setItem(2, 6, antiHalo);
         trailsGui.setItem(2, 7, hotHeadTrail);
-        trailsGui.setItem(2, 8, comingSoon);
+        trailsGui.setItem(2, 8, loveable);
+
         trailsGui.setItem(3, 2, comingSoon);
         trailsGui.setItem(3, 3, comingSoon);
         trailsGui.setItem(3, 4, comingSoon);
@@ -195,6 +235,16 @@ public class TrailsGui implements CommandExecutor {
         trailsGui.setItem(3, 6, comingSoon);
         trailsGui.setItem(3, 7, comingSoon);
         trailsGui.setItem(3, 8, comingSoon);
+        trailsGui.setItem(4, 2, comingSoon);
+        trailsGui.setItem(4, 3, comingSoon);
+        trailsGui.setItem(4, 4, comingSoon);
+        trailsGui.setItem(4, 5, comingSoon);
+        trailsGui.setItem(4, 6, comingSoon);
+        trailsGui.setItem(4, 7, comingSoon);
+        trailsGui.setItem(4, 8, comingSoon);
+
+        trailsGui.setItem(5, 1, backArrow);
+        trailsGui.setItem(5, 9, frontArrow);
 
         //wingsGui.setItem(2, 2, wingsOne);
 
@@ -215,6 +265,29 @@ public class TrailsGui implements CommandExecutor {
 
     private String format(String msg) {
         return ChatColor.translateAlternateColorCodes('&', msg);
+    }
+
+    public static ItemStack getSkull(String url) {
+        ItemStack item = new ItemStack(Material.LEGACY_SKULL_ITEM, 1, (short) 3);
+        if(url.isEmpty())return item;
+
+
+        SkullMeta itemMeta = (SkullMeta) item.getItemMeta();
+        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+        profile.getProperties().put("textures", new Property("textures", url));
+        Field profileField = null;
+        try
+        {
+            profileField = itemMeta.getClass().getDeclaredField("profile");
+            profileField.setAccessible(true);
+            profileField.set(itemMeta, profile);
+        }
+        catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e)
+        {
+            e.printStackTrace();
+        }
+        item.setItemMeta(itemMeta);
+        return item;
     }
 
 }
