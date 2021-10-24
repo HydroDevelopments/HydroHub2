@@ -38,6 +38,7 @@ public class CosmeticsGui implements CommandExecutor, Listener {
 
         GuiItem hatItem = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmFhMTU1NTA5YWFjMWU1NGM2NDQwZDgzMjE1YTdiODBjOTBjNmVhY2M4MDg1Njg4NzU2YTFlODE2NmE0ZSJ9fX0=")))
                 .setName(format("&6Hats")).setLore("Pick A Hat, Any Hat").asGuiItem(event -> {
+                    player.performCommand("hatsgui");
                     event.setCancelled(true);
                 });
 
