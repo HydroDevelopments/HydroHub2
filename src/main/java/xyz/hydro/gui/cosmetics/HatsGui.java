@@ -8,7 +8,6 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
@@ -47,7 +46,7 @@ public class HatsGui implements CommandExecutor, Listener {
             event.setCancelled(true);
         });
 
-        Gui foodGui = new Gui(6, "Food Hats");
+        Gui foodGui = new Gui(5, "Food Hats");
         foodGui.setDefaultClickAction(event -> {
             event.setCancelled(true);
         });
@@ -116,12 +115,18 @@ public class HatsGui implements CommandExecutor, Listener {
                 });
 
         GuiItem backArrow = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2ViZjkwNzQ5NGE5MzVlOTU1YmZjYWRhYjgxYmVhZmI5MGZiOWJlNDljNzAyNmJhOTdkNzk4ZDVmMWEyMyJ9fX0=")))
+                .setName(format("&eGo Back")).setLore("Return To Hats Menu").asGuiItem(event -> {
+                    player.performCommand("hatsgui");
+                    event.setCancelled(true);
+                });
+
+        GuiItem backArrowCosmetics = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2ViZjkwNzQ5NGE5MzVlOTU1YmZjYWRhYjgxYmVhZmI5MGZiOWJlNDljNzAyNmJhOTdkNzk4ZDVmMWEyMyJ9fX0=")))
                 .setName(format("&eGo Back")).setLore("Return To Cosmetics Menu").asGuiItem(event -> {
                     player.performCommand("cosmetics");
                     event.setCancelled(true);
                 });
 
-        GuiItem clearHat = ItemBuilder.from(Material.GLASS_PANE).setName(format("&eClear Hat")).asGuiItem(event -> {
+        GuiItem clearHat = ItemBuilder.from(Material.BARRIER).setName(format("&eClear Hat")).asGuiItem(event -> {
             event.setCancelled(true);
             player.getInventory().setHelmet(new ItemStack(Material.AIR));
             hatsGui.close(player);
@@ -316,6 +321,91 @@ public class HatsGui implements CommandExecutor, Listener {
                     player.sendMessage(format(pluginPrefix + "You have selected the 'Wooden Z' hat!"));
                 });
 
+        // Emoji GUI Items
+        GuiItem smiley1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTJlOTgxNjVkZWVmNGVkNjIxOTUzOTIxYzFlZjgxN2RjNjM4YWY3MWMxOTM0YTQyODdiNjlkN2EzMWY2YjgifX19")))
+                .setName("Smiley").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTJlOTgxNjVkZWVmNGVkNjIxOTUzOTIxYzFlZjgxN2RjNjM4YWY3MWMxOTM0YTQyODdiNjlkN2EzMWY2YjgifX19")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'Smiley' hat!"));
+                });
+
+        GuiItem cool1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODY4ZjRjZWY5NDlmMzJlMzNlYzVhZTg0NWY5YzU2OTgzY2JlMTMzNzVhNGRlYzQ2ZTViYmZiN2RjYjYifX19")))
+                .setName("Sunglasses").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODY4ZjRjZWY5NDlmMzJlMzNlYzVhZTg0NWY5YzU2OTgzY2JlMTMzNzVhNGRlYzQ2ZTViYmZiN2RjYjYifX19")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'Sunglasses' hat!"));
+                });
+
+        GuiItem deceased1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjM3MWU0ZTFjZjZhMWEzNmZkYWUyNzEzN2ZkOWI4NzQ4ZTYxNjkyOTk5MjVmOWFmMmJlMzAxZTU0Mjk4YzczIn19fQ==")))
+                .setName("Deceased").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjM3MWU0ZTFjZjZhMWEzNmZkYWUyNzEzN2ZkOWI4NzQ4ZTYxNjkyOTk5MjVmOWFmMmJlMzAxZTU0Mjk4YzczIn19fQ==")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'Deceased' hat!"));
+                });
+
+        GuiItem derpy1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDViMDU5NWE1MTFjNGIzNzc0MzdhNTE2ZmVmYmVhMmZmY2YzNTU4NWFlNTM0NjViMGU4NjAyNGEyMTVlYiJ9fX0=")))
+                .setName("Derp").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDViMDU5NWE1MTFjNGIzNzc0MzdhNTE2ZmVmYmVhMmZmY2YzNTU4NWFlNTM0NjViMGU4NjAyNGEyMTVlYiJ9fX0=")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'Derpy' hat!"));
+                });
+
+        GuiItem happy1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDFhYzIxZDkzY2UxN2YyYjdlZTJlMGUwN2E5ODNlZWI0YTUzOWUzNDFjZTVjNzdjMzZjNzIyZjc3YTIyMzUifX19")))
+                .setName("Happy").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDFhYzIxZDkzY2UxN2YyYjdlZTJlMGUwN2E5ODNlZWI0YTUzOWUzNDFjZTVjNzdjMzZjNzIyZjc3YTIyMzUifX19")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'Happy' hat!"));
+                });
+
+        GuiItem sleepy1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Q5ZjBmMTllZjE2MWJmYWJhZWFhNDljNTI4ODBiZWNmZTgyZmI5NjJiYmIyMTdkMTc0M2QwZjFiNTNhOTUifX19")))
+                .setName("Sleepy").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Q5ZjBmMTllZjE2MWJmYWJhZWFhNDljNTI4ODBiZWNmZTgyZmI5NjJiYmIyMTdkMTc0M2QwZjFiNTNhOTUifX19")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'Sleepy' hat!"));
+                });
+
+        GuiItem shocked1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjMyOGRiMWMzMjM1ODVhZGViYTE5MDdjZWQzMDYwNTBlMDJhYTc3NTkxNTg4ZmIxODJmZGVhZjQyM2FkNiJ9fX0=")))
+                .setName("Shocked").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjMyOGRiMWMzMjM1ODVhZGViYTE5MDdjZWQzMDYwNTBlMDJhYTc3NTkxNTg4ZmIxODJmZGVhZjQyM2FkNiJ9fX0=")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'Shocked' hat!"));
+                });
+
+        GuiItem crying1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzMyZmUxMjFhNjNlYWFiZDk5Y2VkNmQxYWNjOTE3OTg2NTJkMWVlODA4NGQyZjkxMjdkOGEzMTVjYWQ1Y2U0In19fQ==")))
+                .setName("Crying").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzMyZmUxMjFhNjNlYWFiZDk5Y2VkNmQxYWNjOTE3OTg2NTJkMWVlODA4NGQyZjkxMjdkOGEzMTVjYWQ1Y2U0In19fQ==")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'Crying' hat!"));
+                });
+
+        GuiItem intense1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGM0NmVlNzZmZDllOTQ3ZTM3ODlmYWMzNDgyMTZhYjk4YzI0MjEyNjhmYWZhZjNlYjI5ZWM5NDljMGI4MjE2OSJ9fX0=")))
+                .setName("Intense").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGM0NmVlNzZmZDllOTQ3ZTM3ODlmYWMzNDgyMTZhYjk4YzI0MjEyNjhmYWZhZjNlYjI5ZWM5NDljMGI4MjE2OSJ9fX0=")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'Intense' hat!"));
+                });
+
+        GuiItem laughCry1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODY1ZWY4Y2M4YzY0NjFhN2M0NTIwM2IyNDlkMTMwZjA2NjA4NmE5YmI4MDMwN2VjYWVkYWU4MzU2ODAwY2VhNCJ9fX0=")))
+                .setName("ROFL").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODY1ZWY4Y2M4YzY0NjFhN2M0NTIwM2IyNDlkMTMwZjA2NjA4NmE5YmI4MDMwN2VjYWVkYWU4MzU2ODAwY2VhNCJ9fX0=")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'ROFL' hat!"));
+                });
+
+        GuiItem colonP = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWYxNWM5YjhlZGM1NjI5YjZjYWE0OTE0OGEyMGM1ODkwODUzYzI2NzQzODVlNDM4NzZjYTU2ZDFkNDY1ZiJ9fX0=")))
+                .setName(":P").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWYxNWM5YjhlZGM1NjI5YjZjYWE0OTE0OGEyMGM1ODkwODUzYzI2NzQzODVlNDM4NzZjYTU2ZDFkNDY1ZiJ9fX0=")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the ':P' hat!"));
+                });
+
+        GuiItem wow1 = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDE2ZjNkY2U5NzdkOGI3OTdlMWU0NzZmNWFiOTM2MTllZDJmMmIyMWE0OWFjOTM3NDMxNDBjZjY3YTA4OCJ9fX0=")))
+                .setName("WOW!").asGuiItem(event -> {
+                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDE2ZjNkY2U5NzdkOGI3OTdlMWU0NzZmNWFiOTM2MTllZDJmMmIyMWE0OWFjOTM3NDMxNDBjZjY3YTA4OCJ9fX0=")));
+                    event.setCancelled(true);
+                    player.sendMessage(format(pluginPrefix + "You have selected the 'WOW!' hat!"));
+                });
+
         // Setting the main GUI's items
         hatsGui.setItem(2, 2, alphabetHats);
         hatsGui.setItem(2, 4, emoteHats);
@@ -324,6 +414,7 @@ public class HatsGui implements CommandExecutor, Listener {
         hatsGui.setItem(4, 3, mobHats);
         hatsGui.setItem(4, 5, colorHats);
         hatsGui.setItem(4, 7, blockHats);
+        hatsGui.setItem(6, 1, backArrowCosmetics);
 
         // Setting Alphabet GUI items
         alphabetGui.setItem(1,1, woodA);
@@ -352,6 +443,7 @@ public class HatsGui implements CommandExecutor, Listener {
         alphabetGui.setItem(3,6, woodX);
         alphabetGui.setItem(3,7, woodY);
         alphabetGui.setItem(3,8, woodZ);
+
         alphabetGui.setItem(5,1, backArrow);
         alphabetGui.setItem(5, 2, blackFiller);
         alphabetGui.setItem(5, 3, blackFiller);
@@ -361,6 +453,30 @@ public class HatsGui implements CommandExecutor, Listener {
         alphabetGui.setItem(5, 7, blackFiller);
         alphabetGui.setItem(5, 8, blackFiller);
         alphabetGui.setItem(5, 9, blackFiller);
+
+        // Setting Emoji Items In GUI
+        emojiGui.setItem(1,1, smiley1);
+        emojiGui.setItem(1,2, cool1);
+        emojiGui.setItem(1,3, deceased1);
+        emojiGui.setItem(1,4, derpy1);
+        emojiGui.setItem(1,5, happy1);
+        emojiGui.setItem(1,6, sleepy1);
+        emojiGui.setItem(1,7, shocked1);
+        emojiGui.setItem(1,8, crying1);
+        emojiGui.setItem(1,9, intense1);
+        emojiGui.setItem(2,1, laughCry1);
+        emojiGui.setItem(2,2, colonP);
+        emojiGui.setItem(2,3, wow1);
+
+        emojiGui.setItem(4,1, backArrow);
+        emojiGui.setItem(4, 2, blackFiller);
+        emojiGui.setItem(4, 3, blackFiller);
+        emojiGui.setItem(4, 4, blackFiller);
+        emojiGui.setItem(4,5, clearHat);
+        emojiGui.setItem(4, 6, blackFiller);
+        emojiGui.setItem(4, 7, blackFiller);
+        emojiGui.setItem(4, 8, blackFiller);
+        emojiGui.setItem(4, 9, blackFiller);
 
         if (cmd.getName().equalsIgnoreCase("hatsgui")) {
 
