@@ -10,7 +10,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
 import xyz.hydro.Main;
+
+import static xyz.hydro.utils.CustomSkullGetter.getSkull;
 
 public class CosmeticsGui implements CommandExecutor, Listener {
     private final Main plugin;
@@ -33,17 +36,18 @@ public class CosmeticsGui implements CommandExecutor, Listener {
 
         // Cosmetic GUI Items
 
-        GuiItem hats = ItemBuilder.from(Material.GOLDEN_HELMET).setName(ChatColor.GOLD + "" + ChatColor.BOLD + "Hats").asGuiItem(event -> {
-            event.setCancelled(true);
-        });
+        GuiItem hatItem = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmFhMTU1NTA5YWFjMWU1NGM2NDQwZDgzMjE1YTdiODBjOTBjNmVhY2M4MDg1Njg4NzU2YTFlODE2NmE0ZSJ9fX0=")))
+                .setName(format("&6Hats")).setLore("Pick A Hat, Any Hat").asGuiItem(event -> {
+                    event.setCancelled(true);
+                });
 
         GuiItem trails = ItemBuilder.from(Material.ARROW).setName(ChatColor.BLUE + "Trails").asGuiItem(event -> {
             player.performCommand("trails");
             event.setCancelled(true);
         });
 
-        cosmGui.setItem(2, 2, hats);
-        cosmGui.setItem(2, 2, trails);
+        cosmGui.setItem(2, 2, hatItem);
+        cosmGui.setItem(2, 4, trails);
 
 
         if (cmd.getName().equalsIgnoreCase("cosmetics")) {
@@ -56,5 +60,9 @@ public class CosmeticsGui implements CommandExecutor, Listener {
         }
 
         return true;
+    }
+
+    private String format(String msg) {
+        return ChatColor.translateAlternateColorCodes('&', msg);
     }
 }

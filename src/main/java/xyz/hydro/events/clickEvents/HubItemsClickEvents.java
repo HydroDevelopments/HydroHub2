@@ -29,10 +29,10 @@ public class HubItemsClickEvents implements Listener {
 
         }
 
-        if (player.getInventory().getItemInMainHand().getType().equals(Material.BLAZE_ROD) && player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Trails")
+        if (player.getInventory().getItemInMainHand().getType().equals(Material.CHEST) && player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Cosmetics")
                 && (action.equals(Action.RIGHT_CLICK_AIR) || action.equals(Action.RIGHT_CLICK_BLOCK))) {
 
-            player.performCommand("trails");
+            player.performCommand("cosmetics");
 
             event.setCancelled(true);
 

@@ -23,6 +23,7 @@ import java.util.UUID;
 
 import static xyz.hydro.Main.noPermission;
 import static xyz.hydro.Main.pluginPrefix;
+import static xyz.hydro.utils.CustomSkullGetter.getSkull;
 
 public class TrailsGui implements CommandExecutor {
     private final Main plugin;
@@ -206,15 +207,20 @@ public class TrailsGui implements CommandExecutor {
         });
 
         GuiItem backArrow = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2ViZjkwNzQ5NGE5MzVlOTU1YmZjYWRhYjgxYmVhZmI5MGZiOWJlNDljNzAyNmJhOTdkNzk4ZDVmMWEyMyJ9fX0=")))
-                .setName(format("&3Server Selector")).setLore("Return To Server Selector").asGuiItem(event -> {
-                    player.performCommand("serverselector");
+                .setName(format("&eGo Back")).setLore("Return To Cosmetics Menu").asGuiItem(event -> {
+                    player.performCommand("cosmetics");
                     event.setCancelled(true);
         });
 
-        GuiItem frontArrow = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWE0ZjY4YzhmYjI3OWU1MGFiNzg2ZjlmYTU0Yzg4Y2E0ZWNmZTFlYjVmZDVmMGMzOGM1NGM5YjFjNzIwM2Q3YSJ9fX0=")))
-                .setName(format("&bHub Selector")).setLore("Go to the Hub Selector!").asGuiItem(event -> {
+        /*GuiItem frontArrow = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWE0ZjY4YzhmYjI3OWU1MGFiNzg2ZjlmYTU0Yzg4Y2E0ZWNmZTFlYjVmZDVmMGMzOGM1NGM5YjFjNzIwM2Q3YSJ9fX0=")))
+                .setName(format("&eHub Selector")).setLore("Go to the Hub Selector!").asGuiItem(event -> {
                 player.performCommand("lobbyselector");
                 event.setCancelled(true);
+        });*/
+
+        GuiItem compass = ItemBuilder.from(Material.COMPASS).setName(format("&dServer Selector")).setLore("Go To The Server Selector").asGuiItem(event -> {
+            player.performCommand("serverselector");
+            event.setCancelled(true);
         });
 
         // Wings GUI Items
@@ -244,7 +250,7 @@ public class TrailsGui implements CommandExecutor {
         trailsGui.setItem(4, 8, comingSoon);
 
         trailsGui.setItem(5, 1, backArrow);
-        trailsGui.setItem(5, 9, frontArrow);
+        trailsGui.setItem(5, 5, compass);
 
         //wingsGui.setItem(2, 2, wingsOne);
 
@@ -265,29 +271,6 @@ public class TrailsGui implements CommandExecutor {
 
     private String format(String msg) {
         return ChatColor.translateAlternateColorCodes('&', msg);
-    }
-
-    public static ItemStack getSkull(String url) {
-        ItemStack item = new ItemStack(Material.LEGACY_SKULL_ITEM, 1, (short) 3);
-        if(url.isEmpty())return item;
-
-
-        SkullMeta itemMeta = (SkullMeta) item.getItemMeta();
-        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-        profile.getProperties().put("textures", new Property("textures", url));
-        Field profileField = null;
-        try
-        {
-            profileField = itemMeta.getClass().getDeclaredField("profile");
-            profileField.setAccessible(true);
-            profileField.set(itemMeta, profile);
-        }
-        catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e)
-        {
-            e.printStackTrace();
-        }
-        item.setItemMeta(itemMeta);
-        return item;
     }
 
 }

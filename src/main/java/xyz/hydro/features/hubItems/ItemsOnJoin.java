@@ -35,7 +35,7 @@ public class ItemsOnJoin implements Listener {
         String world = p.getWorld().getName();
         if(!ignoredWorld.contains(world)) {
             ItemStack compass = new ItemStack(Material.COMPASS);
-            ItemStack blaze = new ItemStack(Material.BLAZE_ROD);
+            ItemStack blaze = new ItemStack(Material.CHEST);
             ItemStack book = new ItemStack(Material.NETHER_STAR);
 
             ItemMeta compass_meta = compass.getItemMeta();
@@ -46,7 +46,7 @@ public class ItemsOnJoin implements Listener {
             compass.setItemMeta(compass_meta);
 
             ItemMeta blaze_meta = blaze.getItemMeta();
-            blaze_meta.setDisplayName(ChatColor.GOLD + "Trails");
+            blaze_meta.setDisplayName(ChatColor.GOLD + "Cosmetics");
             ArrayList<String> blaze_lore = new ArrayList();
             blaze_lore.add("Choose a nice trail to follow you around!");
             blaze_meta.setLore(blaze_lore);
