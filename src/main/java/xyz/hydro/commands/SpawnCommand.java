@@ -37,7 +37,7 @@ public class SpawnCommand implements CommandExecutor {
                 World world = plugin.getServer().getWorld(Objects.requireNonNull(plugin.getLocationsConfig().getString("worldSpawnName")));
                 double x = plugin.getLocationsConfig().getDouble("worldSpawnX");
 
-                if (plugin.getLocationsConfig().getBoolean("spawnCommandDelay")) {
+                if (plugin.getConfig().getBoolean("spawnCommandDelay")) {
                     p.sendMessage(format(pluginPrefix + plugin.getMessagesConfig().getString("fiveSecSpawnMsg")));
                     fiveSecTimer(p);
                 } else {
