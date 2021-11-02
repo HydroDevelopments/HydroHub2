@@ -4,7 +4,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -43,7 +42,8 @@ public final class Main extends JavaPlugin implements Listener {
 
     public TabList tab;
 
-    public static double pluginVersion;
+    //public static double pluginVersion;
+    public static String pluginVersion;
 
     public static String pluginPrefix;
 
@@ -60,13 +60,13 @@ public final class Main extends JavaPlugin implements Listener {
 
     public static String noPermission;
 
+    public static String noHatPermission;
+
     public Main() {
 
-        pluginVersion = 1.0;
+        pluginVersion = "2.0-DEV_VERSION";
 
         pluginContributors = "HydroDevelopments";
-
-        noPermission = format("&cYou do not have permissions to use this command!");
 
         // Admin Permissions
         this.permission = new Permission("hhub.admin.mainCommand");
@@ -99,12 +99,54 @@ public final class Main extends JavaPlugin implements Listener {
         this.permission = new Permission("hhub.joinMessages.adminJoinMessage");
         this.permission = new Permission("hhub.joinMessages.opJoinMessage");
 
-        // Cosmetic Permisisons
+        // Particle Cosmetic Permisisons
         this.permission = new Permission("hhub.cosmetics.particles.crossLoop");
         this.permission = new Permission("hhub.cosmetics.particles.hotHead");
         this.permission = new Permission("hhub.cosmetics.particles.halo");
         this.permission = new Permission("hhub.cosmetics.particles.milkRain");
         this.permission = new Permission("hhub.cosmetics.particles.antiHalo");
+
+        // Hat Cosmetic Permissions (Kill me now)
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.access");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.access");
+        this.permission = new Permission("hhub.cosmetics.hats.food.access");
+        this.permission = new Permission("hhub.cosmetics.hats.character.access");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.access");
+        this.permission = new Permission("hhub.cosmetics.hats.color.access");
+        this.permission = new Permission("hhub.cosmetics.hats.blocks.access");
+
+        // Hat GUI Wear and Item Permissions
+        this.permission = new Permission("hhub.cosmetics.hats.clearHat");
+
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.unlockAllHats");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterAHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterBHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterCHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterDHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterEHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterFHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterGHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterHHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterIHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterJHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterKHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterLHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterMHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterNHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterOHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterPHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterQHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterRHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterSHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterTHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterUHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterVHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterWHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterXHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterYHat");
+        this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterZHat");
+
+
 
         // Items Permissions
         this.permission = new Permission("hhub.items.hubItemsClick");
@@ -114,7 +156,6 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        Player player;
 
         // Config Things.
         this.saveDefaultConfig();
@@ -129,6 +170,8 @@ public final class Main extends JavaPlugin implements Listener {
         saveMessagesConfig();
 
         pluginPrefix = this.getMessagesConfig().getString("pluginPrefix");
+        noPermission = this.getMessagesConfig().getString("noPermission");
+        noHatPermission = this.getMessagesConfig().getString("noHatPermission");
 
         this.createLocationsConfig();
         this.reloadLocationsConfig();

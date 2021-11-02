@@ -13,7 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import xyz.hydro.Main;
 
-import static xyz.hydro.Main.pluginPrefix;
+import static xyz.hydro.Main.*;
 import static xyz.hydro.utils.CustomSkullGetter.getSkull;
 
 public class HatsGui implements CommandExecutor, Listener {
@@ -74,44 +74,93 @@ public class HatsGui implements CommandExecutor, Listener {
         // Main GUI's Click Events
         GuiItem alphabetHats = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWM2MGRhMjk0NGExNzdkZDA4MjY4ZmJlYzA0ZTQwODEyZDFkOTI5NjUwYmU2NjUyOWIxZWU1ZTFlN2VjYSJ9fX0=")))
                 .setName("Alphabet Hats").setLore("Here you can pick any letter to use as a hat!").asGuiItem(event -> {
-            alphabetGui.open(player);
-            event.setCancelled(true);
+                    if(player.hasPermission("hhub.cosmetics.hats.alphabet.access")) {
+                        alphabetGui.open(player);
+                        event.setCancelled(true);
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noPermission));
+                        event.setCancelled(true);
+                        hatsGui.close(player);
+                        return;
+                    }
         });
 
         GuiItem emoteHats = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjRlYTJkNmY5MzlmZWZlZmY1ZDEyMmU2M2RkMjZmYThhNDI3ZGY5MGIyOTI4YmMxZmE4OWE4MjUyYTdlIn19fQ==")))
                 .setName("Emoji Hats").setLore("Want to express your feelings more? These are the hats for you!").asGuiItem(event -> {
-                    emojiGui.open(player);
-                    event.setCancelled(true);
+                    if(player.hasPermission("hhub.cosmetics.hats.emoji.access")) {
+                        emojiGui.open(player);
+                        event.setCancelled(true);
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noPermission));
+                        event.setCancelled(true);
+                        hatsGui.close(player);
+                        return;
+                    }
                 });
 
         GuiItem foodHats = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2RhZGYxNzQ0NDMzZTFjNzlkMWQ1OWQyNzc3ZDkzOWRlMTU5YTI0Y2Y1N2U4YTYxYzgyYmM0ZmUzNzc3NTUzYyJ9fX0=")))
                 .setName("Food Hats").setLore("Hungry and want to make others hungry? Here's our delicious food hats!").asGuiItem(event -> {
-                    foodGui.open(player);
-                    event.setCancelled(true);
+                    if(player.hasPermission("hhub.cosmetics.hats.food.access")) {
+                        foodGui.open(player);
+                        event.setCancelled(true);
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noPermission));
+                        event.setCancelled(true);
+                        hatsGui.close(player);
+                        return;
+                    }
                 });
 
         GuiItem characterHats = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGFhMDU5NjZkYmIzOWY3ODBlN2VhNjNhMjk1NjBkOGViNDhlMGMyNDk3YTgxOGE4OTU2NGE1YTE0YTMzZWYifX19")))
                 .setName("Characters").setLore("Wanna be in disguise? Pick a familiar face here!").asGuiItem(event -> {
-                    characterGui.open(player);
-                    event.setCancelled(true);
+                    if(player.hasPermission("hhub.cosmetics.hats.character.access")) {
+                        characterGui.open(player);
+                        event.setCancelled(true);
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noPermission));
+                        event.setCancelled(true);
+                        hatsGui.close(player);
+                        return;
+                    }
                 });
 
         GuiItem mobHats = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2E1OWJiMGE3YTMyOTY1YjNkOTBkOGVhZmE4OTlkMTgzNWY0MjQ1MDllYWRkNGU2YjcwOWFkYTUwYjljZiJ9fX0=")))
                 .setName("Mob Hats").setLore("Mob and Animal hats! Plenty to choose from.").asGuiItem(event -> {
-                    mobGui.open(player);
-                    event.setCancelled(true);
+                    if(player.hasPermission("hhub.cosmetics.hats.mobs.access")) {
+                        mobGui.open(player);
+                        event.setCancelled(true);
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noPermission));
+                        event.setCancelled(true);
+                        hatsGui.close(player);
+                        return;
+                    }
                 });
 
         GuiItem colorHats = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTkzNTJiY2FiZmMyN2VkYjQ0Y2ViNTFiMDQ3ODY1NDJmMjZhMjk5YTA1Mjk0NzUzNDYxODZlZTk0NzM4ZiJ9fX0=")))
                 .setName("Color Hats").setLore("Feeling sorta blue? Show it off to people with the color hats!").asGuiItem(event -> {
-                    colorGui.open(player);
-                    event.setCancelled(true);
+                    if(player.hasPermission("hhub.cosmetics.hats.color.access")) {
+                        colorGui.open(player);
+                        event.setCancelled(true);
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noPermission));
+                        event.setCancelled(true);
+                        hatsGui.close(player);
+                        return;
+                    }
                 });
 
         GuiItem blockHats = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZjNDk1ZDFlNmViNTRhMzg2MDY4YzZjYjEyMWM1ODc1ZTAzMWI3ZjYxZDcyMzZkNWYyNGI3N2RiN2RhN2YifX19")))
                 .setName("Block Hats").setLore("Want to hide in plain sight? We have just the thing!").asGuiItem(event -> {
-                    blockGui.open(player);
-                    event.setCancelled(true);
+                    if(player.hasPermission("hhub.cosmetics.hats.blocks.access")) {
+                        blockGui.open(player);
+                        event.setCancelled(true);
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noPermission));
+                        event.setCancelled(true);
+                        hatsGui.close(player);
+                        return;
+                    }
                 });
 
         GuiItem backArrow = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2ViZjkwNzQ5NGE5MzVlOTU1YmZjYWRhYjgxYmVhZmI5MGZiOWJlNDljNzAyNmJhOTdkNzk4ZDVmMWEyMyJ9fX0=")))
@@ -128,9 +177,15 @@ public class HatsGui implements CommandExecutor, Listener {
 
         GuiItem clearHat = ItemBuilder.from(Material.BARRIER).setName(format("&eClear Hat")).asGuiItem(event -> {
             event.setCancelled(true);
-            player.getInventory().setHelmet(new ItemStack(Material.AIR));
-            hatsGui.close(player);
-            player.sendMessage(format(pluginPrefix + "You have cleared your hat!"));
+            if(player.hasPermission("hhub.cosmetics.hats.clearHat")) {
+                player.getInventory().setHelmet(new ItemStack(Material.AIR));
+                hatsGui.close(player);
+                player.sendMessage(format(pluginPrefix + "You have cleared your hat!"));
+            } else {
+                hatsGui.close(player);
+                player.sendMessage(format(pluginPrefix + noPermission));
+                return;
+            }
         });
 
         GuiItem blackFiller = ItemBuilder.from(Material.BLACK_STAINED_GLASS_PANE).setName(" ").asGuiItem(event -> {
@@ -140,31 +195,47 @@ public class HatsGui implements CommandExecutor, Listener {
         // Alphabet GUI Items
         GuiItem woodA = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTY3ZDgxM2FlN2ZmZTViZTk1MWE0ZjQxZjJhYTYxOWE1ZTM4OTRlODVlYTVkNDk4NmY4NDk0OWM2M2Q3NjcyZSJ9fX0=")))
                 .setName("Wooden Letter A").asGuiItem(event -> {
-                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTY3ZDgxM2FlN2ZmZTViZTk1MWE0ZjQxZjJhYTYxOWE1ZTM4OTRlODVlYTVkNDk4NmY4NDk0OWM2M2Q3NjcyZSJ9fX0=")));
                     event.setCancelled(true);
-                    player.sendMessage(format(pluginPrefix + "You have selected the 'Wooden A' hat!"));
+                    if(player.hasPermission("hhub.cosmetics.hats.alphabet.letterAHat") || player.hasPermission("hhub.cosmetics.hats.alphabet.unlockAllHats")) {
+                        player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTY3ZDgxM2FlN2ZmZTViZTk1MWE0ZjQxZjJhYTYxOWE1ZTM4OTRlODVlYTVkNDk4NmY4NDk0OWM2M2Q3NjcyZSJ9fX0=")));
+                        player.sendMessage(format(pluginPrefix + "You have selected the 'Wooden A' hat!"));
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noHatPermission));
+                    }
                 });
 
         GuiItem woodB = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTBjMWI1ODRmMTM5ODdiNDY2MTM5Mjg1YjJmM2YyOGRmNjc4NzEyM2QwYjMyMjgzZDg3OTRlMzM3NGUyMyJ9fX0=")))
                 .setName("Wooden Letter B").asGuiItem(event -> {
-                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTBjMWI1ODRmMTM5ODdiNDY2MTM5Mjg1YjJmM2YyOGRmNjc4NzEyM2QwYjMyMjgzZDg3OTRlMzM3NGUyMyJ9fX0=")));
                     event.setCancelled(true);
-                    player.sendMessage(format(pluginPrefix + "You have selected the 'Wooden B' hat!"));
+                    if(player.hasPermission("hhub.cosmetics.hats.alphabet.letterBHat") || player.hasPermission("hhub.cosmetics.hats.alphabet.unlockAllHats")) {
+                        player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTBjMWI1ODRmMTM5ODdiNDY2MTM5Mjg1YjJmM2YyOGRmNjc4NzEyM2QwYjMyMjgzZDg3OTRlMzM3NGUyMyJ9fX0=")));
+                        player.sendMessage(format(pluginPrefix + "You have selected the 'Wooden B' hat!"));
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noHatPermission));
+                    }
                 });
 
         GuiItem woodC = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWJlOTgzZWM0NzgwMjRlYzZmZDA0NmZjZGZhNDg0MjY3NjkzOTU1MWI0NzM1MDQ0N2M3N2MxM2FmMThlNmYifX19")))
                 .setName("Wooden Letter C").asGuiItem(event -> {
-                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWJlOTgzZWM0NzgwMjRlYzZmZDA0NmZjZGZhNDg0MjY3NjkzOTU1MWI0NzM1MDQ0N2M3N2MxM2FmMThlNmYifX19")));
                     event.setCancelled(true);
-                    player.sendMessage(format(pluginPrefix + "You have selected the 'Wooden C' hat!"));
+                    if(player.hasPermission("hhub.cosmetics.hats.alphabet.letterCHat") || player.hasPermission("hhub.cosmetics.hats.alphabet.unlockAllHats")) {
+                        player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWJlOTgzZWM0NzgwMjRlYzZmZDA0NmZjZGZhNDg0MjY3NjkzOTU1MWI0NzM1MDQ0N2M3N2MxM2FmMThlNmYifX19")));
+                        player.sendMessage(format(pluginPrefix + "You have selected the 'Wooden C' hat!"));
+                    } else {
+                        player.sendMessage(format(pluginPrefix + noHatPermission));
+                    }
                 });
 
 
         GuiItem woodD = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzE5M2RjMGQ0YzVlODBmZjlhOGEwNWQyZmNmZTI2OTUzOWNiMzkyNzE5MGJhYzE5ZGEyZmNlNjFkNzEifX19")))
                 .setName("Wooden Letter D").asGuiItem(event -> {
-                    player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzE5M2RjMGQ0YzVlODBmZjlhOGEwNWQyZmNmZTI2OTUzOWNiMzkyNzE5MGJhYzE5ZGEyZmNlNjFkNzEifX19")));
                     event.setCancelled(true);
-                    player.sendMessage(format(pluginPrefix + "You have selected the 'Wooden D' hat!"));
+                    if(player.hasPermission("hhub.cosmetics.hats.alphabet.letterDHat") || player.hasPermission("hhub.cosmetics.hats.alphabet.unlockAllHats")) {
+                        player.getInventory().setHelmet(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzE5M2RjMGQ0YzVlODBmZjlhOGEwNWQyZmNmZTI2OTUzOWNiMzkyNzE5MGJhYzE5ZGEyZmNlNjFkNzEifX19")));
+                        player.sendMessage(format(pluginPrefix + "You have selected the 'Wooden D' hat!"));
+                    } else {
+                        player.sendMessage(format(pluginPrefix  + noHatPermission));
+                    }
                 });
 
         GuiItem woodE = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGJiMjczN2VjYmY5MTBlZmUzYjI2N2RiN2Q0YjMyN2YzNjBhYmM3MzJjNzdiZDBlNGVmZjFkNTEwY2RlZiJ9fX0=")))
@@ -853,6 +924,9 @@ public class HatsGui implements CommandExecutor, Listener {
 
                 hatsGui.open(player);
 
+            }
+            else {
+                player.sendMessage(format(pluginPrefix + noPermission));
             }
         }
 

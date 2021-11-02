@@ -87,3 +87,6 @@ helpMenu:
 
 #########################################################################################
 connectingToServerMsg: "Sending you to the server..."
+#########################################################################################
+noPermission: "&cYou do not have permissions to use this command!"
+noHatPermission: "&eYou do not own this hat!"
