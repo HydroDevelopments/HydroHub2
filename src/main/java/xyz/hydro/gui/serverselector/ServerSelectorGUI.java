@@ -60,6 +60,17 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
 
         // Actual Items
 
+        // Cosmetics
+        GuiItem cosmetics = ItemBuilder.from(Material.CHEST).setName(format("&6Cosmetics")).setLore("Head To The Cosmetics Menu").asGuiItem(event -> {
+            event.setCancelled(true);
+            player.performCommand("cosmetics");
+        });
+
+        GuiItem LobbySelector = ItemBuilder.from(Material.NETHER_STAR).setName(format("&eLobby Selector")).setLore("Head To The Lobby Selector").asGuiItem(event -> {
+            event.setCancelled(true);
+            player.performCommand("lobbyselector");
+        });
+
         // Slot1
         List<String> slot1Lore = plugin.getServerConfig().getStringList("serverSelector.items.1.lore");
         slot1Lore = PlaceholderAPI.setPlaceholders(player, slot1Lore);
@@ -513,52 +524,52 @@ public class ServerSelectorGUI implements CommandExecutor, Listener {
         if(Objects.equals(plugin.getServerConfig().getString("serverSelector.secondaryGlassColor"), "BLACK")) {
             server.setItem(1, 1, blackGlass);
             server.setItem(2, 1, blackGlass);
-            server.setItem(3, 1, blackGlass);
+            server.setItem(3, 1, cosmetics);
             server.setItem(4, 1, blackGlass);
             server.setItem(5, 1, blackGlass);
 
             server.setItem(1, 9, blackGlass);
             server.setItem(2, 9, blackGlass);
-            server.setItem(3, 9, blackGlass);
+            server.setItem(3, 9, LobbySelector);
             server.setItem(4, 9, blackGlass);
             server.setItem(5, 9, blackGlass);
             // Red as secondary
         } else if(Objects.equals(plugin.getServerConfig().getString("serverSelector.secondaryGlassColor"), "RED")) {
             server.setItem(1, 1, redGlass);
             server.setItem(2, 1, redGlass);
-            server.setItem(3, 1, redGlass);
+            server.setItem(3, 1, cosmetics);
             server.setItem(4, 1, redGlass);
             server.setItem(5, 1, redGlass);
 
             server.setItem(1, 9, redGlass);
             server.setItem(2, 9, redGlass);
-            server.setItem(3, 9, redGlass);
+            server.setItem(3, 9, LobbySelector);
             server.setItem(4, 9, redGlass);
             server.setItem(5, 9, redGlass);
             // blue as secondary
         } else if(Objects.equals(plugin.getServerConfig().getString("serverSelector.secondaryGlassColor"), "BLUE")) {
             server.setItem(1, 1, blueGlass);
             server.setItem(2, 1, blueGlass);
-            server.setItem(3, 1, blueGlass);
+            server.setItem(3, 1, cosmetics);
             server.setItem(4, 1, blueGlass);
             server.setItem(5, 1, blueGlass);
 
             server.setItem(1, 9, blueGlass);
             server.setItem(2, 9, blueGlass);
-            server.setItem(3, 9, blueGlass);
+            server.setItem(3, 9, LobbySelector);
             server.setItem(4, 9, blueGlass);
             server.setItem(5, 9, blueGlass);
             // Normal as secondary
         } else if(Objects.equals(plugin.getServerConfig().getString("serverSelector.secondaryGlassColor"), "NORMAL")) {
             server.setItem(1, 1, plainGlass);
             server.setItem(2, 1, plainGlass);
-            server.setItem(3, 1, plainGlass);
+            server.setItem(3, 1, cosmetics);
             server.setItem(4, 1, plainGlass);
             server.setItem(5, 1, plainGlass);
 
             server.setItem(1, 9, plainGlass);
             server.setItem(2, 9, plainGlass);
-            server.setItem(3, 9, plainGlass);
+            server.setItem(3, 9, LobbySelector);
             server.setItem(4, 9, plainGlass);
             server.setItem(5, 9, plainGlass);
         } else {

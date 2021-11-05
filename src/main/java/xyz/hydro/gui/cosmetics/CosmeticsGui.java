@@ -29,7 +29,7 @@ public class CosmeticsGui implements CommandExecutor, Listener {
 
         // Server Selector GUI
 
-        Gui cosmGui = new Gui(6, ChatColor.LIGHT_PURPLE + "Cosmetic Menu");
+        Gui cosmGui = new Gui(4, ChatColor.LIGHT_PURPLE + "Cosmetic Menu");
         cosmGui.setDefaultClickAction(event -> {
             event.setCancelled(true);
         });
@@ -47,8 +47,22 @@ public class CosmeticsGui implements CommandExecutor, Listener {
             event.setCancelled(true);
         });
 
-        cosmGui.setItem(2, 2, hatItem);
-        cosmGui.setItem(2, 4, trails);
+        GuiItem backArrow = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2ViZjkwNzQ5NGE5MzVlOTU1YmZjYWRhYjgxYmVhZmI5MGZiOWJlNDljNzAyNmJhOTdkNzk4ZDVmMWEyMyJ9fX0=")))
+                .setName(format("&eServer Selector")).setLore("Return To Server Selector Menu!").asGuiItem(event -> {
+                    player.performCommand("serverselector");
+                    event.setCancelled(true);
+                });
+
+        GuiItem frontArrow = ItemBuilder.from(new ItemStack(getSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWE0ZjY4YzhmYjI3OWU1MGFiNzg2ZjlmYTU0Yzg4Y2E0ZWNmZTFlYjVmZDVmMGMzOGM1NGM5YjFjNzIwM2Q3YSJ9fX0=")))
+                .setName(format("&eLobby Selector")).setLore("Go to the Lobby Selector!").asGuiItem(event -> {
+                player.performCommand("lobbyselector");
+                event.setCancelled(true);
+        });
+
+        cosmGui.setItem(2, 4, hatItem);
+        cosmGui.setItem(2, 6, trails);
+        cosmGui.setItem(4, 1, backArrow);
+        cosmGui.setItem(4, 9, frontArrow);
 
 
         if (cmd.getName().equalsIgnoreCase("cosmetics")) {

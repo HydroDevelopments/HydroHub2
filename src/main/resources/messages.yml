@@ -90,3 +90,44 @@ connectingToServerMsg: "Sending you to the server..."
 #########################################################################################
 noPermission: "&cYou do not have permissions to use this command!"
 noHatPermission: "&eYou do not own this hat!"
+########### TIMED MESSAGES #############################################################
+autoBroadcastMessages:
+  interval: 100
+  autoBroadcastEnabled: true
+
+  msg1Enable: true
+  msg2Enable: false
+  msg3Enable: false
+  msg4Enable: false
+  msg5Enable: false
+  msg6Enable: false
+  msg7Enable: false
+  msg8Enable: false
+  msg9Enable: false
+  msg10Enable: false
+
+  1:
+    - "&c&o---"
+    - "&cFLASH SALE! &650% &cOFF ALL RANKS!"
+    - " "
+    - "&bVisit The Store At: www.example.com"
+    - " "
+    - "&c&o---"
+  2:
+    - ""
+  3:
+    - ""
+  4:
+    - ""
+  5:
+    - ""
+  6:
+    - ""
+  7:
+    - ""
+  8:
+    - ""
+  9:
+    - ""
+  10:
+    - ""
