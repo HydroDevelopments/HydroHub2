@@ -146,7 +146,74 @@ public final class Main extends JavaPlugin implements Listener {
         this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterYHat");
         this.permission = new Permission("hhub.cosmetics.hats.alphabet.letterZHat");
 
+        // Emoji GUI Wear and Item Permission
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.unlockAllHats");
 
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.smiley");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.sunglasses");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.deceased");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.derp");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.happy");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.sleepy");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.shocked");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.crying");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.intense");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.rofl");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.colonP");
+        this.permission = new Permission("hhub.cosmetics.hats.emoji.wow");
+
+        // Food GUI Wear and Item Permissions
+        this.permission = new Permission("hhub.cosmetics.hats.food.unlockAllHats");
+
+        this.permission = new Permission("hhub.cosmetics.hats.food.fries");
+        this.permission = new Permission("hhub.cosmetics.hats.food.pumpkin");
+        this.permission = new Permission("hhub.cosmetics.hats.food.burger");
+        this.permission = new Permission("hhub.cosmetics.hats.food.sushi");
+        this.permission = new Permission("hhub.cosmetics.hats.food.jamStraw");
+        this.permission = new Permission("hhub.cosmetics.hats.food.pizzaHat");
+        this.permission = new Permission("hhub.cosmetics.hats.food.pizzaHat2");
+        this.permission = new Permission("hhub.cosmetics.hats.food.melonHead");
+        this.permission = new Permission("hhub.cosmetics.hats.food.cake");
+
+        // Character GUI Wear and Item Permissions
+        this.permission = new Permission("hhub.cosmetics.hats.character.unlockAllHats");
+
+        this.permission = new Permission("hhub.cosmetics.hats.character.link");
+        this.permission = new Permission("hhub.cosmetics.hats.character.finnTheHuman");
+        this.permission = new Permission("hhub.cosmetics.hats.character.jakeTheDog");
+        this.permission = new Permission("hhub.cosmetics.hats.character.ashKetchum");
+        this.permission = new Permission("hhub.cosmetics.hats.character.warrio");
+        this.permission = new Permission("hhub.cosmetics.hats.character.masterCheif");
+        this.permission = new Permission("hhub.cosmetics.hats.character.theJoker");
+        this.permission = new Permission("hhub.cosmetics.hats.character.batMan");
+        this.permission = new Permission("hhub.cosmetics.hats.character.deadpool");
+        this.permission = new Permission("hhub.cosmetics.hats.character.captainAmerica");
+        this.permission = new Permission("hhub.cosmetics.hats.character.goomba");
+        this.permission = new Permission("hhub.cosmetics.hats.character.doge");
+        this.permission = new Permission("hhub.cosmetics.hats.character.bowser");
+        this.permission = new Permission("hhub.cosmetics.hats.character.darthVador");
+        this.permission = new Permission("hhub.cosmetics.hats.character.stitch");
+        this.permission = new Permission("hhub.cosmetics.hats.character.groot");
+
+        // Character GUI Wear and Item Permissions
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.unlockAllHats");
+
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.enderman");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.slime");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.magmaCube");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.spider");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.chicken");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.pig");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.cow");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.squid");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.villager");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.ironGolem");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.mooshroom");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.guardian");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.penguin");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.walrus");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.koala");
+        this.permission = new Permission("hhub.cosmetics.hats.mobs.turtle");
 
         // Items Permissions
         this.permission = new Permission("hhub.items.hubItemsClick");

@@ -31,6 +31,9 @@ boostPadWorlds:
     - hub3
     - hub4
 
+# Control how far the player is launched upon walking over a boost pad.
+boostPadLaunchMultiplier: 2.0
+boostPadHeightMultiplier: 1.0
 
 # This chooses which worlds the HubItems are functional and given in.
 # List the worlds you DON'T want HubItems in.
@@ -42,9 +45,6 @@ hubItemWorlds:
     - world3
     - world4
 
-# Control how far the player is launched upon walking over a boost pad.
-boostPadLaunchMultiplier: 2.0
-boostPadHeightMultiplier: 1.0
 
 # Scoreboard - To change messages, go to messages.yml !
 scoreboardEnabled: true
