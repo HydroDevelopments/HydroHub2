@@ -1,6 +1,7 @@
 package xyz.hydro.features;
 
 import me.clip.placeholderapi.PlaceholderAPI;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -74,7 +75,7 @@ public class Scoreboard implements Listener {
 
 
         // Scoreboard Type Animation
-        new BukkitRunnable() {
+        Bukkit.getScheduler().scheduleAsyncRepeatingTask(Main.getPlugin((Main.class)), new Runnable() {
             int counter = 0;
             String finaltitle = "";
 
@@ -100,7 +101,7 @@ public class Scoreboard implements Listener {
                     counter = 0;
                 }
             }
-        }.runTaskTimerAsynchronously(plugin, 0, 8);
+        }, 0, 8);
 
         player.setScoreboard(scoreboard);
     }

@@ -18,6 +18,7 @@ import xyz.hydro.events.OnRespawnEvent;
 import xyz.hydro.events.clickEvents.HubItemsClickEvents;
 import xyz.hydro.features.*;
 import xyz.hydro.features.chat.PlayerJoinMessage;
+import xyz.hydro.features.holograms.MainHoloCommand;
 import xyz.hydro.features.hubItems.ItemsOnJoin;
 import xyz.hydro.gui.cosmetics.CosmeticsGui;
 import xyz.hydro.gui.cosmetics.HatsGui;
@@ -216,6 +217,9 @@ public final class Main extends JavaPlugin implements Listener {
         this.permission = new Permission("hhub.items.hubItemsClick");
         this.permission = new Permission("hhub.admin.items.bypass");
 
+        // Holo Permissions
+        this.permission = new Permission("hhub.admin.commands.mainHoloCommand");
+
     }
 
     @Override
@@ -298,6 +302,9 @@ public final class Main extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("gma")).setExecutor((new ShortCommands(this)));
         Objects.requireNonNull(getCommand("gm3")).setExecutor((new ShortCommands(this)));
         Objects.requireNonNull(getCommand("gmsp")).setExecutor((new ShortCommands(this)));
+
+        // Holo Command(s)
+        Objects.requireNonNull(getCommand("holo")).setExecutor((new MainHoloCommand(this)));
 
         // Event Registering Goes Here!
         pluginManager.registerEvents(new OnRespawnEvent(this), this);

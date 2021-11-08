@@ -75,3 +75,7 @@ commands:
     description: Set a hat!
     usage: /<command>
     permission: hhub.members.command.setHatCommand
+  holo:
+    description: The main hologram commands!
+    usage: /<command>
+    permission: hhub.admin.commands.mainHoloCommand
